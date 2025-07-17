@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Despre Joc - The Elden Lord Card Game</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="logo">𝕿𝖍𝖊 𝕰𝖑𝖉𝖊𝖓 𝕷𝖔𝖗𝖉</div>
+        <nav>
+            <ul>
+                <li><a href="html.html">Acasă</a></li>
+                <li><a href="despre-joc.html" class="active">Despre Joc</a></li>
+                <li><a href="carti.html">Cărți</a></li>
+                <li><a href="shop.html">Magazin</a></li>
+                <li><a href="resurse.html">Resurse</a></li>
+                <li><a href="forum.html">Forum</a></li>
+            </ul>
+        </nav>
+        <div class="user-menu">
+        <img src="others\user.png" alt="User Icon" class="user-icon" />
+        <div class="dropdown-menu">
+            <a href="http://localhost/site/login.html">Logare</a>
+            <a href="http://localhost/site/signup.html">Inregistrare</a>
+            <a href="cos.html">Coș</a>
+            <a href="orders.html">Comenzile Mele</a>
+			<a href="cont.html">Cont</a>
+        </div>
+    </div>
+    </header>
+
+    <main>
+        <h1>Despre The Elden Lord Card Game</h1>
+        <p><strong>The Elden Lord</strong> este un joc de cărți de strategie, asemănător altor jocuri cunoscute precum <strong>Yu-Gi-Oh</strong>, <strong>Magic: The Gathering</strong> sau <strong>Duel Masters</strong>. Jocul aduce, de asemenea, concepte din <strong>Teamfight Tactics</strong>, implementând mecanica de <strong>Traits</strong>.</p>
+		<p style="color: red;"><strong>
+		Cărțile și informațiile despre cărți sunt exclusiv în limba ENGLEZĂ deoarece este conceput pentru a fi înțeles de oricine și de asemenea rămâne fidel descrierilor din joc și numelor personajelor. În rest, pentru navigarea pe site și pentru informații despre cont, comenzi și modul de joc, am folosit limba română.
+		</strong></p>
+
+        <h2>Mecanica de "Traits"</h2>
+        <p>Fiecare carte din joc are cel puțin un trait care poate reprezenta:</p>
+        <ul>
+            <li>Locația personajului de pe carte (ex. <em>Caelid</em>, <em>Liurnia</em>, <em>Golden Order</em>, etc.)</li>
+            <li>Tipul de abilitate în luptă sau rasa (ex. <em>Omen</em>, <em>Blood-reeper</em>, <em>DemiGod</em>, etc.)</li>
+        </ul>
+        <p>Cărțile care împart același trait devin mai puternice în funcție de trait-ul pe care îl compun sau de numărul de cărți cu același trait pe care le ai în joc. În principiu, cu cât ai mai multe cărți cu același trait pe câmpul de luptă, cu atât acestea devin mai puternice și oferă bonusuri suplimentare.</p>
+		<p> Verifica Traiturile la pagina de resurse si vezi ce face fiecare trait din joc. </p>
+        <h2>Modul de Joc și Reguli</h2>
+        <p><strong>The Elden Lord Card Game</strong> se joacă în următorul mod:</p>
+        <ul>
+            <li>Fiecare jucător trebuie să aibă un pachet de cărți de minimum 40 și maximum 70 de cărți.</li>
+            <li>Fiecare jucător începe cu 20.000 de puncte de viață și cu 3 cărți plasate cu fața în jos ca scuturi pe câmpul de luptă, alese de fiecare jucător.</li>
+            <li>Primele 3 atacuri directe asupra jucătorului distrug câte un scut, iar cartea atacată este returnată în mâna jucătorului. Punctele de atac ale cărții care a atacat se scad din viața jucătorului aflat în defensivă.</li>
+            <li>După distrugerea scuturilor, atacurile scad direct din viața jucătorului defensiv.</li>
+        </ul>
+
+        <section class="game-rules">
+            <h2>Mana și Zona de Mana</h2>
+            <p>Fiecare jucător începe cu <strong>2 mana</strong>, care reprezintă minimul în fiecare rundă. La începutul fiecărei runde, jucătorul are cel puțin 2 mana.</p>
+            <p>Jucătorii pot crește mana plasând cărți în <strong>zona de mana</strong>. Fiecare carte plasată adaugă <strong>1 mana</strong>, dar există și cărți speciale care oferă mai multă mana.</p>
+            <p>Exemplu: Dacă un jucător are 4 cărți în zona de mana, acesta are 6 mana. Dacă utilizează o carte cu un cost de 3 mana, va rămâne cu 1 carte în zona de mana și tura viitoare va începe cu 3 mana.</p>
+            <p>În fiecare rundă, un jucător poate pune maxim <strong>numărul de cărți din mână împărțit la 2</strong> în zona de mana. Dacă numărul de cărți este impar, poate pune <strong>jumătate + 1</strong>.</p>
+        </section>
+
+        <section class="advanced-rules">
+            <h2>Reguli Avansate</h2>
+            <p>Mana minimă poate crește cu 3 (până la 5) dacă jucătorul advers nu mai are scuturi. Acest lucru se face prin plasarea cărților în zona de mana, care rămân acolo în fiecare tură.</p>
+            <p>Cărțile ale căror mana este consumată sunt eliminate din joc și nu sunt plasate în cimitir (<em>graveyard</em>).</p>
+        </section>
+
+        <section class="combat-rules">
+            <h2>Reguli de Luptă</h2>
+            <ul>
+                <li><strong>Fără limită:</strong> Nu există nicio limită a cartonașelor puse în luptă.</li>
+                <li><strong>Defensive Mode:</strong> După ce un cartonaș atacă, este pus în modul defensiv.</li>
+                <li><strong>Lupta între cartonașe:</strong> Atacul este singurul status relevant dacă adversarul nu este în modul defensiv.</li>
+                <li><strong>Timp de defensivă:</strong> 
+                    <ul>
+                        <li>Atac între 0-1400: 1 tură în defensivă.</li>
+                        <li>Atac între 1500-2400: 2 ture în defensivă.</li>
+                        <li>Atac între 2500-3400: 3 ture în defensivă.</li>
+                        <li>Atac 3400+: 4 ture în defensivă.</li>
+                    </ul>
+                </li>
+            </ul>
+        </section>
+
+        <h2>Invocări</h2>
+        <p>Jucătorii pot plasa cărți pe câmpul de luptă în fiecare tură, în funcție de punctele de mana disponibile:</p>
+        <ul>
+            <li>Carțile speciale de tip "Special Summon" pot fi invocate în joc doar respectând cerințele lor specifice.</li>
+        </ul>
+
+        <p>Aceste mecanici creează un joc dinamic și strategic, în care fiecare decizie contează pentru succesul în bătăliile din universul <strong>Elden Ring</strong>.</p>
+    </main>
+
+<footer>
+  <div class="footer-content">
+    <img src="others/caracter1.png" alt="Caracter 1" class="footer-char left">
+    
+    <div class="footer-center">
+      <p>&copy; The Elden Lord Card Game shop</p>
+      <div class="footer-support">
+        <img src="others/telephone.png" alt="Telefon" class="footer-icon">
+        Suport telefonic la <strong>+40 722 123 456</strong><br>
+        Suport online la tiberiuflorin.padurean@ublsibiu.ro</a>
+      </div>
+    </div>
+
+    <img src="others/caracter3.png" alt="Caracter 3" class="footer-char right">
+  </div>
+</footer>
+
+	
+	<script>
+document.addEventListener("DOMContentLoaded", function () {
+    fetch("user-status.php")
+        .then(response => response.json())
+        .then(data => {
+            const userMenu = document.querySelector(".dropdown-menu");
+            if (data.loggedIn) {
+                userMenu.innerHTML = `
+                    <p class="username-display">👤 ${data.username}</p>
+                    <a href="logout.php">Deconectați-vă</a>
+                    <a href="cos.html">Coș</a>
+                    <a href="orders.html">Comenzile Mele</a>
+					<a href="cont.html">Cont</a>
+                `;
+            }
+        });
+});
+</script>
+
+	
+</body>
+</html>

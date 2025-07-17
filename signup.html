@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up - The Elden Lord Card Game</title>
+    <link rel="stylesheet" href="/site/style.css">
+</head>
+<body>
+    <header>
+        <div class="logo">The Elden Lord Card Game</div>
+        <nav>
+            <ul>
+                <li><a href="/site/html.html">Acasă</a></li>
+                <li><a href="/site/despre-joc.html">Despre Joc</a></li>
+                <li><a href="/site/carti.html">Cărți</a></li>
+                <li><a href="/site/shop.html">Magazin</a></li>
+                <li><a href="/site/resurse.html">Resurse</a></li>
+                <li><a href="/site/forum.html">Forum</a></li>
+            </ul>
+        </nav>
+        <div class="user-menu">
+            <img src="others/user.png" alt="User Icon" class="user-icon" />
+            <div class="dropdown-menu">
+            <a href="http://localhost/site/login.html">Logare</a>
+            <a href="http://localhost/site/signup.html">Inregistrare</a>
+                <a href="/site/cos.html">Coș</a>
+                <a href="/site/orders.html">Comenzile mele</a>
+				<a href="cont.html">Cont</a>
+            </div>
+        </div>
+    </header>
+    <main>
+        <div class="signup-container">
+            <h2>Înregistrare</h2>
+            <form id="signupForm" method="POST" action="/site/signup.php">
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" required>
+                
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+                
+                <label for="password">Parolă:</label>
+                <input type="password" id="password" name="password" required>
+                
+                <button type="submit">Creeaza Contul</button>
+            </form>
+            <p id="signupMessage"></p>
+        </div>
+
+        <script>
+            const urlParams = new URLSearchParams(window.location.search);
+            const status = urlParams.get('status');
+            const messageElement = document.getElementById('signupMessage');
+
+            if (status) {
+                switch (status) {
+                    case 'success':
+                        messageElement.textContent = "Cont creat cu succes! Acum te poți autentifica.";
+                        messageElement.style.color = "green";
+                        break;
+                    case 'email_exists':
+                        messageElement.textContent = "Acest email este deja utilizat!";
+                        messageElement.style.color = "red";
+                        break;
+                    case 'username_exists':
+                        messageElement.textContent = "Acest username este deja utilizat!";
+                        messageElement.style.color = "red";
+                        break;
+                    case 'error':
+                        messageElement.textContent = "Eroare la crearea contului!";
+                        messageElement.style.color = "red";
+                        break;
+                    case 'empty':
+                        messageElement.textContent = "Toate câmpurile sunt obligatorii!";
+                        messageElement.style.color = "red";
+                        break;
+                    default:
+                        messageElement.textContent = "Eroare necunoscută!";
+                        messageElement.style.color = "red";
+                }
+            }
+        </script>
+
+    </main>
+<footer>
+  <div class="footer-content">
+    <img src="others/caracter1.png" alt="Caracter 1" class="footer-char left">
+    
+    <div class="footer-center">
+      <p>&copy; The Elden Lord Card Game shop</p>
+      <div class="footer-support">
+        <img src="others/telephone.png" alt="Telefon" class="footer-icon">
+        Suport telefonic la <strong>+40 722 123 456</strong><br>
+        Suport online la tiberiuflorin.padurean@ublsibiu.ro</a>
+      </div>
+    </div>
+
+    <img src="others/caracter3.png" alt="Caracter 3" class="footer-char right">
+  </div>
+</footer>
+</body>
+</html>

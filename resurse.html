@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resurse - The Elden Lord Card Game</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="logo">𝕿𝖍𝖊 𝕰𝖑𝖉𝖊𝖓 𝕷𝖔𝖗𝖉</div>
+        <nav>
+            <ul>
+                <li><a href="html.html">Acasă</a></li>
+                <li><a href="despre-joc.html">Despre Joc</a></li>
+                <li><a href="carti.html">Cărți</a></li>
+                <li><a href="shop.html">Magazin</a></li>
+                <li><a href="resurse.html">Resurse</a></li>
+                <li><a href="forum.html">Forum</a></li>
+            </ul>
+        </nav>
+        <div class="user-menu">
+            <img src="others/user.png" alt="User Icon" class="user-icon" />
+            <div class="dropdown-menu">
+				<a href="http://localhost/site/login.html">Logare</a>
+				<a href="http://localhost/site/signup.html">Inregistrare</a>
+                <a href="cos.html">Coș</a>
+                <a href="orders.html">Comenzile Mele</a>
+				<a href="cont.html">Cont</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <h1>Resurse</h1>
+		<div style="text-align: right; margin: 20px;">
+		<button onclick="setLanguage('ro')">Română</button>
+		<button onclick="setLanguage('en')">English</button>
+		</div>
+
+        <p>Aici vei găsi ghiduri, tutoriale și alte resurse pentru a învăța și a îmbunătăți strategia ta în The Elden Lord Card Game.</p>
+        <p><a href="forum.html">Discută cu alți jucători pe forum</a></p>
+		
+        <!-- Secțiunea pentru Trait-uri -->
+        <section id="traits">
+            <h2>Trait-uri și Efecte</h2>
+
+            <div class="trait-box underground">
+                <img src="trait_images/Underground.png" alt="Underground Icon" class="trait-icon">
+                <div class="trait-details">
+                    <h3>Underground</h3>
+                    <p class="multilang"
+					data-ro="Se activează la 3, poate reînvia o carte din cimitir la fiecare tură, dar costă +1 mana."
+					data-en="Activates at 3, can revive one card from the graveyard every turn but it costs +1 mana."
+					</p>
+                </div>
+            </div>
+
+            <div class="trait-box farumazula">
+                <img src="trait_images/FarumAzula.png" alt="Farum Azula Icon" class="trait-icon">
+                <div class="trait-details">
+                    <h3>Farum Azula</h3>
+                    <p class="multilang"
+					data-ro="Se activează la 5, poate influența timpul și îl îngheață, permițându-vă să faceți de două ori mai multe acțiuni în acea rundă. O singură dată: poate anula una dintre acțiunile adversarului din ultima rundă."
+					data-en="Activates at 5, can influence time and freeze it, allowing you to make twice as many actions in that round. One time only: can undo one of the opponent's actions from the last round."
+					</p>
+                </div>
+            </div>
+
+            <div class="trait-box dragons">
+                <img src="trait_images/Dragon.png" alt="Dragons Icon" class="trait-icon">
+                <div class="trait-details">
+                    <h3>Dragons</h3>
+					<p class="multilang"
+					data-ro="Pe lângă mana, costă și sănătatea jucătorilor. Se activează la 2 dragoni: arde câmpul de luptă și dă +200 de atac pentru 2 runde. La 3 dragoni: câmpul de luptă arde permanent."
+					data-en="Besides mana, they also cost players' health. Activates at 2 dragons: burn the battlefield and give +200 attack for 2 rounds. At 3 dragons: battlefield burns permanently."
+					</p>
+                </div>
+            </div>
+
+            <div class="trait-box liurnia">
+                <img src="trait_images/Liurnia.png" alt="Liurnia Icon" class="trait-icon">
+                <div class="trait-details">
+                    <h3>Liurnia</h3>
+                     <p class="multilang"
+			data-ro="Se activează la 3 cărți Liurnia pe câmpul de luptă. Arată-ți și adversarului primele 3 cărți din pachetul tău, alege o carte, ia-i costul de mana și ia cărți din pachetul tău până când costul cărților luate este egal cu mana ale cărții * 2.
+
+		Exemplu: alegi o carte care are 5 mana, tragi cărți până când cărțile ajung la 10 mana în total.
+		Exemplul 2: Dacă ați extras cărți în total 7 mana, iar costul maxim este 10 și următoarea carte costă 4 mana, nu o puteți trage, o plasați înapoi în partea de jos a pachetului.
+		La 4 cărți Liurnia: dacă una dintre cărțile tale Liurnia este ucisă, aceasta merge în zona de mana în loc de cimitir.
+		La 3 cărți Liurnia: +1 mana la fiecare tură.
+		La 5 cărți Liurnia: +2 mana la fiecare tură.
+		La 7 cărți Liurnia: +2 mana + poate pune încă 1 scut magic (+1 scut) + poate pune încă 1 carte pe câmpul de luptă."
+			data-en="Activates at 3 Liurnia cards in the battlefield. Show the first 3 cards from your deck to you and your opponent, choose one card, take its mana cost and take cards from your deck until the taken cards cost equals the chosen card mana * 2.
+		Example: You choose a card that has 5 mana, you draw cards until the cards reach 10 mana in total.
+		Example 2: If you have drawn cards in total of 7 mana, and the maximum cost is 10 and the next card cost 4 mana, you cannot draw it, you place it back at the bottom of the deck.
+		At 4 Liurnia cards: if one of your Liurnia cards is killed, it goes to mana zone instead of graveyard.
+		At 3 Liurnia cards: +1 mana every turn.
+		At 5 Liurnia cards: +2 mana every turn.
+		At 7 Liurnia cards: +2 mana + can place 1 more magic shield (+1 shield) + can put 1 more card on the battlefield.">
+					</p>
+            </div>
+		</div>
+
+            <div class="trait-box altusplateau">
+                <img src="trait_images/AltusPlateau.png" alt="Altus Plateau Icon" class="trait-icon">
+                <div class="trait-details">
+                    <h3>Altus Plateau</h3>
+					<p class="multilang"
+					data-ro="Se activează la 4: Anulează trăsăturile inamicului până când toate cărțile Platoului Altus plasate pe câmpul tău de luptă sunt distruse."
+                    data-en="Activates at 4: Cancel enemy's traits until all Altus Plateau cards placed in your battlefield are destroyed."</p>
+                </div>
+            </div>
+
+            <div class="trait-box omen">
+                <img src="trait_images/Omen.png" alt="Omen Icon" class="trait-icon">
+                <div class="trait-details">
+                    <h3>Omen</h3>
+					<p class="multilang"
+					data-ro="Se activează la 2: Când un Omen moare, el se vindecă și se transformă într-o carte cu maximum 1100 de atac și maximum 1100 de apărare (fără convocare)."
+					data-en="Activates at 2: When an Omen dies, he gets cured and transforms into a card with max 1100 attack and maximum 1100 defense (no summons)."</p>
+				</div>
+            </div>
+
+            <div class="trait-box bloodreaper">
+                <img src="trait_images/Reaper.png" alt="Blood Reaper Icon" class="trait-icon">
+                <div class="trait-details">
+                    <h3>Blood Reaper</h3>
+                   <p class="multilang"
+					data-ro="Se activează la 2 secerători: Fiecare ucidere a secerătorului restabilește 100 HP sănătății jucătorului.
+                    3 secerători: 200 CP.
+                    4+ secerători: 300 CP.
+                    Dacă viata jucătorului este plină, jucătorul primește puncte suplimentare de viata."
+					data-en=" Activates at 2 reapers: Each reaper kill restores 100 HP to the player's health.
+                    3 reapers: 200 HP.
+                    4+ reapers: 300 HP.
+                    If the player's health is full, the player gets extra health points."
+					</p>
+                </div>
+            </div>
+
+            <div class="trait-box caelid">
+                <img src="trait_images/Caelid.png" alt="Caelid Icon" class="trait-icon">
+                <div class="trait-details">
+                    <h3>Caelid</h3>
+                   <p class="multilang"
+					data-ro="Se activează la 3: inamicul nu poate câștiga mana timp de 2 ture.
+                    Poate consuma 3 cărți de cimitir sau 1 carte din mână pentru a invoca încă 1 carte Caelid (NUMAI O DARE)."
+					data-en="Activates at 3: The enemy cannot gain mana for 2 turns.
+                    Can consume 3 graveyard cards or 1 card from the hand to summon 1 more Caelid card (ONE TIME ONLY)."
+					</p>
+                </div>
+            </div>
+
+            <div class="trait-box haligtree">
+                <img src="trait_images/Haaligtree.png" alt="Haligtree Icon" class="trait-icon">
+                <div class="trait-details">
+                    <h3>Haligtree</h3>
+                    <p class="multilang"
+					data-ro="Se activează la 5: Oferă Putregaiul Scarlet jucătorului inamic și își drenează sănătatea în fiecare rundă (-500 pe rundă pentru maximum 10 runde). Efectul continuă chiar și după ce nu mai există cărți Haligtree pentru a finaliza trăsătura."
+					data-en="Activates at 5: Gives Scarlet Rot to the enemy player and drains its health every round (-500 per round for maximum 10 rounds). The effect continues even after there are no more Haligtree cards to complete the trait."
+					</p>
+                </div>
+            </div>
+
+            <div class="trait-box stormveil">
+                <img src="trait_images/Stormveil.png" alt="Stormveil Icon" class="trait-icon">
+                <div class="trait-details">
+                    <h3>Stormveil & Limgrave</h3>
+					<p class="multilang"
+					data-ro="Se activează la 4: vântul suflă și elimină 1 din mana inamicului la fiecare tură când această trăsătură este activă.
+                    La 5 cărți: Selectați 1 carte pentru a fi mai rapid, puteți ataca de două ori."
+					data-en="Activates at 4: The wind blows and removes 1 from enemy's mana every turn when this trait is active.
+                    At 5 cards: Select 1 card to be quicker, can attack twice."
+					</p>
+                </div>
+            </div>
+
+        </section>
+    </main>
+
+<footer>
+  <div class="footer-content">
+    <img src="others/caracter1.png" alt="Caracter 1" class="footer-char left">
+    
+    <div class="footer-center">
+      <p>&copy; The Elden Lord Card Game shop</p>
+      <div class="footer-support">
+        <img src="others/telephone.png" alt="Telefon" class="footer-icon">
+        Suport telefonic la <strong>+40 722 123 456</strong><br>
+        Suport online la tiberiuflorin.padurean@ublsibiu.ro</a>
+      </div>
+    </div>
+
+    <img src="others/caracter3.png" alt="Caracter 3" class="footer-char right">
+  </div>
+</footer>
+	
+	<script>
+document.addEventListener("DOMContentLoaded", function () {
+    fetch("user-status.php")
+        .then(response => response.json())
+        .then(data => {
+            const userMenu = document.querySelector(".dropdown-menu");
+            if (data.loggedIn) {
+                userMenu.innerHTML = `
+                    <p class="username-display">👤 ${data.username}</p>
+                    <a href="logout.php">Deconectați-vă</a>
+                    <a href="cos.html">Coș</a>
+                    <a href="orders.html">Comenzile Mele</a>
+					<a href="cont.html">Cont</a>
+                `;
+            }
+        });
+});
+</script>
+
+<script>
+function setLanguage(lang) {
+    localStorage.setItem("resLang", lang);
+    updateTextLanguage();
+}
+
+function updateTextLanguage() {
+    const lang = localStorage.getItem("resLang") || "ro";
+    document.querySelectorAll(".multilang").forEach(el => {
+        el.textContent = el.getAttribute(`data-${lang}`);
+    });
+}
+
+document.addEventListener("DOMContentLoaded", updateTextLanguage);
+</script>
+
+	
+</body>
+</html>

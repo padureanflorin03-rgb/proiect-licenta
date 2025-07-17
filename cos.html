@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Coș - The Elden Lord Card Game</title>
+  <link rel="stylesheet" href="style.css"/>
+  <style>
+    #checkoutForm {
+      background-color: #f8f8f8;
+      padding: 20px;
+      border-radius: 8px;
+      width: 90%;
+      max-width: 500px;
+      margin: 30px auto;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    #checkoutForm label {
+      font-weight: bold;
+      display: block;
+      margin-top: 10px;
+    }
+
+    #checkoutForm input,
+    #checkoutForm textarea,
+    #checkoutForm select {
+      width: 100%;
+      padding: 8px;
+      margin-top: 5px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      box-sizing: border-box;
+    }
+
+    #checkoutForm button[type="submit"] {
+      background-color: #5cb85c;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      margin-top: 15px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    #checkoutForm button[type="submit"]:hover {
+      background-color: #449d44;
+    }
+  </style>
+</head>
+<body>
+<header>
+  <div class="logo">The Elden Lord Card Game</div>
+  <nav>
+    <ul>
+      <li><a href="html.html">Acasă</a></li>
+      <li><a href="despre-joc.html">Despre Joc</a></li>
+      <li><a href="carti.html">Cărți</a></li>
+      <li><a href="shop.html">Magazin</a></li>
+      <li><a href="resurse.html">Resurse</a></li>
+      <li><a href="forum.html">Forum</a></li>
+    </ul>
+  </nav>
+  <div class="user-menu">
+    <img src="others/user.png" alt="User Icon" class="user-icon" />
+    <span id="usernameLabel" style="margin-left: 8px; font-weight: bold;"></span>
+    <div class="dropdown-menu" id="userDropdown"></div>
+  </div>
+</header>
+
+<main>
+  <h1>Coșul Meu</h1>
+  <p>Aici sunt produsele adăugate în coșul de cumpărături.</p>
+
+  <div id="cartContainer" class="cart-container"></div>
+
+  <div id="buttons" style="text-align:center; margin-top: 20px; display:none;">
+    <button id="clearCartBtn">🗑️ Golește coșul</button>
+    <button id="orderBtn" style="margin-left: 10px;">📦 Trimite Comanda</button>
+  </div>
+
+  <div id="checkoutForm" style="display: none;">
+    <h2>Finalizează comanda</h2>
+    <form id="orderForm">
+	  <label for="livrare">Livrare: prin curier</label>
+      <label for="fullname">Nume complet:</label>
+      <input type="text" id="fullname" name="fullname" required />
+
+      <label for="address">Adresă de livrare:</label>
+      <textarea id="address" name="address" rows="3" required></textarea>
+
+      <label for="phone">Număr de telefon:</label>
+      <input type="tel" id="phone" name="phone" required />
+	  
+	  <label for="email">Adresă de email:</label><br>
+	  <input type="email" id="email" name="email" required><br><br>
+
+      <label for="postalcode">Cod Poștal:</label>
+      <input type="text" id="postalcode" name="postalcode" required />
+
+      <label for="payment">Metodă de plată:</label>
+      <select id="payment" name="payment">
+        <option value="ramburs">Ramburs</option>
+		<option value="card">Card</option>
+      </select>
+	  <label for="estimatedtime">Timp estimat de livrare: ~ 2 săptămâni</label>
+	  	<p id="cardMessage" style="display: none; font-weight: bold; margin-top: 10px;">
+		💳 Pentru plata cu cardul, alegeți una din modalitățile de mai jos:
+		</p>
+      <button type="submit">Plasează Comanda</button>
+	  
+
+    </form>
+	<div id="paypal-warning" style="margin-top: 10px; color: #a94442; font-weight: bold;">
+  ⚠️ Vă rugăm să completați toate câmpurile de mai sus și să folosiți aceleași date în pagina PayPal pentru livrare corectă.
+</div>
+	<p id="cardMessage" style="display: none; color: #a94442; font-weight: bold; margin-top: 10px;">
+  💳 Pentru plata cu cardul, alegeți una din modalitățile de mai jos:
+</p>
+<div id="paypal-button-container" style="margin-top: 15px;"></div>
+
+
+  </div>
+</main>
+
+<footer>
+  <div class="footer-content">
+    <img src="others/caracter1.png" alt="Caracter 1" class="footer-char left">
+    
+    <div class="footer-center">
+      <p>&copy; The Elden Lord Card Game shop</p>
+      <div class="footer-support">
+        <img src="others/telephone.png" alt="Telefon" class="footer-icon">
+        Suport telefonic la <strong>+40 722 123 456</strong><br>
+        Suport online la tiberiuflorin.padurean@ublsibiu.ro</a>
+      </div>
+    </div>
+
+    <img src="others/caracter3.png" alt="Caracter 3" class="footer-char right">
+  </div>
+</footer>
+
+<script src="https://www.paypal.com/sdk/js?client-id=Ae1_laGrEgst_F3ME46LS5h2uV7NQ7f7uAc6j7g2ci1hmRE-8JspCDEyWoSHK7pE6e4vzSwWGAQ77Z-B"></script>
+
+<script>
+const username = localStorage.getItem("username");
+const isLoggedIn = localStorage.getItem("isLoggedIn");
+const usernameLabel = document.getElementById("usernameLabel");
+const dropdown = document.getElementById("userDropdown");
+
+if (isLoggedIn === "true" && username) {
+  usernameLabel.textContent = `👤 ${username}`;
+  dropdown.innerHTML = `
+    <a href="logout.php">Deconectați-vă</a>
+    <a href="cos.html">Coș</a>
+    <a href="orders.html">Comenzile Mele</a>
+	<a href="cont.html">Cont</a>
+  `;
+} else {
+  usernameLabel.textContent = "";
+  dropdown.innerHTML = `
+    <a href="login.html">Logare</a>
+    <a href="signup.html">Inregistrare</a>
+  `;
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+  const cartContainer = document.getElementById("cartContainer");
+  const buttons = document.getElementById("buttons");
+  const key = `cart_${username}`;
+
+  if (isLoggedIn !== "true" || !username) {
+    cartContainer.innerHTML = `<p style="color: red;">Trebuie să fii logat pentru a vedea coșul.</p>`;
+    return;
+  }
+
+  const cartItems = JSON.parse(localStorage.getItem(key)) || [];
+
+  if (cartItems.length === 0) {
+    cartContainer.innerHTML = "<p>Coșul este gol.</p>";
+    return;
+  }
+
+  buttons.style.display = "block";
+
+  let total = 0;
+  cartItems.forEach(item => {
+    const subtotal = item.price * item.quantity;
+    total += subtotal;
+
+    const itemDiv = document.createElement("div");
+    itemDiv.classList.add("cart-item");
+    itemDiv.innerHTML = `
+      <img src="${item.image}" alt="${item.name}" class="cart-image">
+      <div class="cart-details">
+        <h3>${item.name}</h3>
+        <p>Cantitate: ${item.quantity}</p>
+        <p>Preț: ${item.price.toFixed(2)} $</p>
+        <p>Subtotal: ${subtotal.toFixed(2)} $</p>
+        <button class="remove-btn" onclick="removeFromCart('${item.name}')">Șterge</button>
+      </div>
+    `;
+    cartContainer.appendChild(itemDiv);
+  });
+
+  const totalDiv = document.createElement("div");
+  totalDiv.innerHTML = `<h2>Total: ${total.toFixed(2)} $</h2>`;
+  cartContainer.appendChild(totalDiv);
+});
+
+document.getElementById("clearCartBtn").addEventListener("click", function () {
+  if (confirm("Ești sigur că vrei să golești coșul?")) {
+    localStorage.removeItem(`cart_${username}`);
+    alert("✔️ Coșul a fost golit.");
+    location.reload();
+  }
+});
+
+function removeFromCart(name) {
+  if (!confirm(`Ești sigur că vrei să ștergi produsul "${name}" din coș?`)) return;
+  const key = `cart_${username}`;
+  let cartItems = JSON.parse(localStorage.getItem(key)) || [];
+  cartItems = cartItems.filter(item => item.name !== name);
+  localStorage.setItem(key, JSON.stringify(cartItems));
+  location.reload();
+}
+
+// Afisam formularul de checkout
+document.getElementById("orderBtn").addEventListener("click", function () {
+  const cart = JSON.parse(localStorage.getItem(`cart_${username}`)) || [];
+
+  if (cart.length === 0) {
+    alert("Coșul este gol.");
+    return;
+  }
+
+  document.getElementById("checkoutForm").style.display = "block";
+  // Preluam datele contului din localStorage
+document.getElementById("fullname").value = localStorage.getItem(`fullname_${username}`) || "";
+document.getElementById("address").value = localStorage.getItem(`address_${username}`) || "";
+document.getElementById("phone").value = localStorage.getItem(`phone_${username}`) || "";
+document.getElementById("postalcode").value = localStorage.getItem(`postalcode_${username}`) || "";
+document.getElementById("email").value = localStorage.getItem("email") || "";
+
+  window.scrollTo({ top: document.body.scrollHeight, behavior: "smooth" });
+});
+
+// Trimite comanda
+document.getElementById("orderForm").addEventListener("submit", function (e) {
+  e.preventDefault();
+
+  const name = document.getElementById("fullname").value;
+  const address = document.getElementById("address").value;
+  const phone = document.getElementById("phone").value.trim();
+  const email = document.getElementById("email").value.trim();
+  const postalcode = document.getElementById("postalcode").value.trim();
+  const payment = document.getElementById("payment").value;
+  const cart = JSON.stringify(JSON.parse(localStorage.getItem(`cart_${username}`)) || []);
+
+  if (!/^\d{9,15}$/.test(phone)) {
+    alert("Numărul de telefon trebuie să conțină doar cifre și să aibă între 9 și 15 caractere.");
+    return;
+  }
+
+  if (!/^\d{4,10}$/.test(postalcode)) {
+    alert("Codul poștal trebuie să conțină doar cifre (4-10 caractere).");
+    return;
+  }
+
+  const formData = new URLSearchParams();
+  formData.append("fullname", name);
+  formData.append("address", address);
+  formData.append("phone", phone);
+  formData.append("email", email);
+  formData.append("postalcode", postalcode);
+  formData.append("payment", payment);
+  formData.append("username", username);
+  formData.append("cart", cart);
+
+  fetch("salveaza-comanda.php", {
+    method: "POST",
+    body: formData
+  })
+    .then(res => res.text())
+    .then(result => {
+      if (result.trim() === "success") {
+        if (result.trim() === "success") {
+    const successMsg = document.createElement("div");
+    successMsg.textContent = "✅ Comanda a fost trimisă cu succes!";
+    successMsg.style.backgroundColor = "#d4edda";
+    successMsg.style.color = "#155724";
+    successMsg.style.padding = "15px";
+    successMsg.style.marginTop = "20px";
+    successMsg.style.border = "1px solid #c3e6cb";
+    successMsg.style.borderRadius = "5px";
+    successMsg.style.textAlign = "center";
+    document.getElementById("checkoutForm").after(successMsg);
+
+    localStorage.removeItem(`cart_${username}`);
+    setTimeout(() => window.location.href = "orders.html", 2000); // Redirecționează spre comenzi
+}
+
+        localStorage.removeItem(`cart_${username}`);
+        window.location.reload();
+      } else {
+        alert("❌ Eroare la salvarea comenzii.");
+      }
+    })
+    .catch(error => {
+      console.error("Eroare:", error);
+      alert("❌ Eroare de rețea.");
+    });
+});
+</script>
+
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const paymentMethodSelect = document.getElementById("payment");
+  const paypalContainer = document.createElement("div");
+  
+  
+  paypalContainer.id = "paypal-button-container";
+
+  const orderBtn = document.getElementById("orderBtn");
+  const checkoutForm = document.getElementById("checkoutForm");
+
+  // Afiseaza butonul PayPal doar cand se selecteaza "card"
+paymentMethodSelect.addEventListener("change", function () {
+  const submitBtn = document.querySelector('#orderForm button[type="submit"]');
+  const cardMessage = document.getElementById("cardMessage");
+  const paypalContainer = document.getElementById("paypal-button-container");
+
+  if (this.value === "card") {
+    submitBtn.style.display = "none";
+    cardMessage.style.display = "block";
+
+    if (!paypalContainer.hasChildNodes()) {
+      initPayPalButton();
+    }
+  } else {
+    submitBtn.style.display = "inline-block";
+    cardMessage.style.display = "none";
+    paypalContainer.innerHTML = "";
+  }
+});
+
+
+function initPayPalButton() {
+  paypal.Buttons({
+    onClick: function (data, actions) {
+      const name = document.getElementById("fullname").value.trim();
+      const address = document.getElementById("address").value.trim();
+      const phone = document.getElementById("phone").value.trim();
+      const email = document.getElementById("email").value.trim();
+      const postalcode = document.getElementById("postalcode").value.trim();
+
+      if (!name || !address || !phone || !email || !postalcode) {
+        alert("❌ Te rugăm să completezi toate câmpurile din formular înainte de a plăti prin PayPal sau card!");
+        return actions.reject();
+      }
+
+      if (!/^\d{9,15}$/.test(phone)) {
+        alert("❌ Numărul de telefon este invalid.");
+        return actions.reject();
+      }
+
+      if (!/^\d{4,10}$/.test(postalcode)) {
+        alert("❌ Codul poștal este invalid.");
+        return actions.reject();
+      }
+
+      return actions.resolve();
+    },
+    createOrder: function (data, actions) {
+      const cart = JSON.parse(localStorage.getItem(`cart_${username}`)) || [];
+      const total = cart.reduce((acc, item) => acc + item.price * item.quantity, 0).toFixed(2);
+
+      return actions.order.create({
+        purchase_units: [{
+          amount: { value: total }
+        }]
+      });
+    },
+    onApprove: function (data, actions) {
+      return actions.order.capture().then(function (details) {
+        alert("✅ Plata a fost făcută cu succes de " + details.payer.name.given_name);
+        submitOrder();
+      });
+    }
+  }).render("#paypal-button-container");
+}
+
+
+  // Simuleaza trimiterea comenzii
+  function submitOrder() {
+    const name = document.getElementById("fullname").value;
+    const address = document.getElementById("address").value;
+    const phone = document.getElementById("phone").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const postalcode = document.getElementById("postalcode").value.trim();
+    const payment = "paypal";
+    const cart = JSON.stringify(JSON.parse(localStorage.getItem(`cart_${username}`)) || []);
+
+    const formData = new URLSearchParams();
+    formData.append("fullname", name);
+    formData.append("address", address);
+    formData.append("phone", phone);
+    formData.append("email", email);
+    formData.append("postalcode", postalcode);
+    formData.append("payment", payment);
+    formData.append("username", username);
+    formData.append("cart", cart);
+
+    fetch("salveaza-comanda.php", {
+      method: "POST",
+      body: formData
+    })
+    .then(res => res.text())
+    .then(result => {
+      if (result.trim() === "success") {
+        localStorage.removeItem(`cart_${username}`);
+        window.location.href = "orders.html";
+      } else {
+        alert("❌ Eroare la salvarea comenzii.");
+      }
+    })
+    .catch(error => {
+      console.error("Eroare:", error);
+      alert("❌ Eroare de rețea.");
+    });
+  }
+});
+</script>
+
+</body>
+</html>

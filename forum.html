@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Forum - The Elden Lord Card Game</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<header>
+  <div class="logo">𝕿𝖍𝖊 𝕰𝖑𝖉𝖊𝖓 𝕷𝖔𝖗𝖉</div>
+  <nav>
+    <ul>
+      <li><a href="html.html">Acasă</a></li>
+      <li><a href="despre-joc.html">Despre Joc</a></li>
+      <li><a href="carti.html">Cărți</a></li>
+      <li><a href="shop.html">Magazin</a></li>
+      <li><a href="resurse.html">Resurse</a></li>
+      <li><a href="forum.html">Forum</a></li>
+    </ul>
+  </nav>
+  <div class="user-menu">
+    <img id="profileIcon" src="others/user.png" alt="User Icon" class="user-icon" />
+    <div class="dropdown-menu" id="userDropdown">
+      <a href="login.html">Logare</a>
+      <a href="signup.html">Inregistrare</a>
+      <a href="cos.html">Coș</a>
+      <a href="orders.html">Comenzile Mele</a>
+      <a href="cont.html">Cont</a>
+    </div>
+  </div>
+</header>
+
+<main>
+  <h1>Forum</h1>
+  <p>Alătură-te comunității noastre de jucători și discută despre strategii, carti și alte aspecte ale jocului.</p>
+  <p><a href="resurse.html">Caută resurse pentru a îmbunătăți strategia ta</a></p>
+  <h1>Forum - Discuții și Întrebări</h1>
+  <div id="forumContainer"></div>
+  <div id="askFormContainer" style="margin-top: 30px;">
+    <h2>Pune o întrebare</h2>
+    <form id="askForm">
+      <textarea id="questionText" rows="3" placeholder="Scrie o întrebare..." required></textarea><br />
+      <button type="submit">Publică Întrebarea</button>
+    </form>
+  </div>
+</main>
+
+<footer>
+  <div class="footer-content">
+    <img src="others/caracter1.png" alt="Caracter 1" class="footer-char left">
+    
+    <div class="footer-center">
+      <p>&copy; The Elden Lord Card Game shop</p>
+      <div class="footer-support">
+        <img src="others/telephone.png" alt="Telefon" class="footer-icon">
+        Suport telefonic la <strong>+40 722 123 456</strong><br>
+        Suport online la tiberiuflorin.padurean@ublsibiu.ro</a>
+      </div>
+    </div>
+
+    <img src="others/caracter3.png" alt="Caracter 3" class="footer-char right">
+  </div>
+</footer>
+
+<script>
+let currentUsername = null;
+let isLoggedIn = false;
+
+document.addEventListener("DOMContentLoaded", function () {
+  fetch("user-status.php")
+    .then(response => response.json())
+    .then(data => {
+      const menu = document.querySelector(".dropdown-menu");
+      if (data.loggedIn) {
+        currentUsername = data.username;
+        isLoggedIn = true;
+        menu.innerHTML = `
+          <p class="username-display">👤 ${data.username}</p>
+          <a href="logout.php">Deconectați-vă</a>
+          <a href="cos.html">Coș</a>
+          <a href="orders.html">Comenzile Mele</a>
+          <a href="cont.html">Cont</a>
+        `;
+      } else {
+        isLoggedIn = false;
+        currentUsername = null;
+        document.getElementById("askFormContainer").innerHTML =
+          "<p style='color:red;'>🔒 Trebuie să fii logat pentru a pune întrebări.</p>";
+      }
+
+      afiseazaIntrebari();
+    });
+});
+
+function afiseazaIntrebari() {
+  fetch("forum.txt")
+    .then(res => res.text())
+    .then(data => {
+      const lines = data.trim().split("\n");
+      if (!lines[0]) {
+        forumContainer.innerHTML = "<p style='color:gray;'>Nu există întrebări încă.</p>";
+        return;
+      }
+
+      lines.forEach(line => {
+        const entry = JSON.parse(line);
+        const div = document.createElement("div");
+        div.classList.add("forum-question");
+
+        let answersHtml = "";
+        if (entry.answers && entry.answers.length > 0) {
+          answersHtml = entry.answers.map((ans, index) => {
+            const canDelete =
+              isLoggedIn && ans.user === currentUsername
+                ? `<button class="delete-btn" onclick="deleteAnswer('${entry.id}', ${index})">🗑️</button>`
+                : "";
+            return `
+              <div class="forum-answer">
+                <strong>${ans.user}</strong> (${ans.date}): ${ans.text} ${canDelete}
+              </div>
+            `;
+          }).join("");
+        }
+
+        const deleteBtn =
+          isLoggedIn && entry.user === currentUsername
+            ? `<button class="delete-btn" onclick="deleteQuestion('${entry.id}')">🗑️ Șterge întrebarea</button>`
+            : "";
+
+        const replyForm = isLoggedIn
+          ? `
+            <form onsubmit="submitAnswer(event, '${entry.id}')">
+              <input type="text" placeholder="Răspunde..." id="input-${entry.id}" required>
+              <button type="submit">Răspunde</button>
+            </form>
+          `
+          : "";
+
+        div.innerHTML = `
+          <p><strong>${entry.user}</strong> întreabă <span style="color: gray; font-size: 0.9em;">(${entry.date})</span>:</p>
+          <p style="margin-left: 10px;">${entry.question}</p>
+          ${answersHtml}
+          ${replyForm}
+          ${deleteBtn}
+        `;
+        document.getElementById("forumContainer").appendChild(div);
+      });
+    });
+}
+
+document.getElementById("askForm")?.addEventListener("submit", function (e) {
+  e.preventDefault();
+  const question = document.getElementById("questionText").value;
+
+  const formData = new URLSearchParams();
+  formData.append("type", "question");
+  formData.append("user", currentUsername);
+  formData.append("question", question);
+
+  fetch("forum-handler.php", {
+    method: "POST",
+    body: formData
+  }).then(res => res.text())
+    .then(() => location.reload());
+});
+
+function submitAnswer(e, questionId) {
+  e.preventDefault();
+  const answer = document.getElementById(`input-${questionId}`).value;
+
+  const formData = new URLSearchParams();
+  formData.append("type", "answer");
+  formData.append("user", currentUsername);
+  formData.append("questionId", questionId);
+  formData.append("text", answer);
+
+  fetch("forum-handler.php", {
+    method: "POST",
+    body: formData
+  }).then(res => res.text())
+    .then(() => location.reload());
+}
+
+function deleteQuestion(id) {
+  if (!confirm("Ești sigur că vrei să ștergi această întrebare?")) return;
+
+  fetch("sterge-comentariu.php", {
+    method: "POST",
+    headers: { "Content-Type": "application/x-www-form-urlencoded" },
+    body: `id=${encodeURIComponent(id)}&username=${encodeURIComponent(currentUsername)}&mode=question`
+  })
+    .then(res => res.text())
+    .then(result => {
+      if (result.trim() === "success") location.reload();
+      else alert("❌ Nu s-a putut șterge întrebarea.");
+    });
+}
+
+function deleteAnswer(questionId, index) {
+  if (!confirm("Ești sigur că vrei să ștergi acest răspuns?")) return;
+
+  fetch("sterge-comentariu.php", {
+    method: "POST",
+    headers: { "Content-Type": "application/x-www-form-urlencoded" },
+    body: `id=${encodeURIComponent(questionId)}&username=${encodeURIComponent(currentUsername)}&mode=answer&answerIndex=${index}`
+  })
+    .then(res => res.text())
+    .then(result => {
+      if (result.trim() === "success") location.reload();
+      else alert("❌ Nu s-a putut șterge răspunsul.");
+    });
+}
+</script>
+
+<style>
+/* Forum container */
+#forumContainer {
+  max-width: 800px;
+  margin: 0 auto;
+}
+/* Cutie întrebare */
+.forum-question {
+  background-color: #f4f4f4;
+  border-left: 4px solid #888;
+  border-radius: 8px;
+  padding: 15px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+/* Utilizator întrebare */
+.forum-question strong {
+  color: #333;
+  font-size: 16px;
+}
+/* Răspunsuri */
+.forum-answer {
+  background-color: #fff;
+  margin: 10px 0 0 20px;
+  padding: 10px;
+  border-left: 3px solid #5cb85c;
+  border-radius: 5px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+}
+/* Form răspuns */
+.forum-question form {
+  margin-top: 10px;
+  display: flex;
+  gap: 10px;
+}
+.forum-question input[type="text"] {
+  flex: 1;
+  padding: 6px 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+.forum-question button {
+  padding: 6px 12px;
+  background-color: #5cb85c;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.forum-question button:hover {
+  background-color: #4cae4c;
+}
+/* Form întrebare nouă */
+#askFormContainer {
+  max-width: 700px;
+  margin: 40px auto;
+  background-color: #fdfdfd;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.07);
+}
+#askForm textarea {
+  width: 100%;
+  padding: 10px;
+  font-size: 14px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  resize: vertical;
+}
+#askForm button {
+  margin-top: 10px;
+  background-color: #337ab7;
+  color: white;
+  padding: 8px 14px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+#askForm button:hover {
+  background-color: #286090;
+}
+button.delete-btn {
+  background-color: #d9534f;
+  color: white;
+  border: none;
+  padding: 6px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 5px;
+}
+button.delete-btn:hover {
+  background-color: #c9302c;
+}
+</style>
+</body>
+</html>

@@ -1,0 +1,943 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cărți - The Elden Lord Card Game</title>
+    <link rel="stylesheet" href="/site/style.css">
+</head>
+<body>
+<script src="/site/carti.js" defer></script>
+<script src="/site/favorites.js" defer></script>
+<script>
+    if (window.location.protocol === "file:") {
+        window.location.href = "http://localhost/site/carti.html";
+    }
+</script>
+
+<header>
+    <div class="logo">𝕿𝖍𝖊 𝕰𝖑𝖉𝖊𝖓 𝕷𝖔𝖗𝖉</div>
+    <nav>
+        <ul>
+            <li><a href="html.html">Acasă</a></li>
+            <li><a href="despre-joc.html">Despre Joc</a></li>
+            <li><a href="carti.html">Cărți</a></li>
+            <li><a href="shop.html">Magazin</a></li>
+            <li><a href="resurse.html">Resurse</a></li>
+            <li><a href="forum.html">Forum</a></li>
+        </ul>
+    </nav>
+
+   <div class="user-menu">
+    <img id="profileIcon" src="others/user.png" alt="User Icon" class="user-icon" />
+    <span id="usernameLabel" style="margin-left: 8px; font-weight: bold;"></span>
+    <div class="dropdown-menu" id="userDropdown">
+        <a href="login.html" id="loginLink">Logare</a>
+        <a href="signup.html" id="signupLink">Inregistrare</a>
+        <a href="logout.html" id="logoutLink" style="display:none;">Logout</a>
+        <a href="cos.html">Coș</a>
+        <a href="orders.html">Comenzile Mele</a>
+		<a href="cont.html">Cont</a>
+    </div>
+</div>
+</header>
+
+    <main>
+        <h1>Cărți</h1>
+
+        <div class="submenu">
+            <ul>
+                <li><a href="#speciale">Cărți Speciale</a></li>
+                <li><a href="#normale">Cărți Normale</a></li>
+                <li><a href="#spells">Magii</a></li>
+            </ul>
+            <div class="search-bar">
+                <input type="text" id="searchInput" placeholder="Caută cartea...">
+                <button id="searchButton">Caută</button>
+            </div>
+        </div>
+
+        <!-- Meniu de sortare -->
+       <div class="sort-menu">
+		<label for="sortOptions">Sortează după:</label>
+			<select id="sortOptions">
+				<option value="default">Selectează...</option>
+				<option value="attack">Atac (descrescător)</option>
+				<option value="defense">Defensivă (descrescător)</option>
+			</select>
+			<button id="applySortButton">Aplică Sortarea</button>
+		</div>
+
+        <p>Aici vei găsi toate cărțile disponibile din jocul The Elden Lord. Fiecare carte vine cu trăsături și abilități unice.</p>
+        <p><a href="shop.html">Vezi pachetele de cărți disponibile în Magazin</a></p>
+		
+		 <div id="cardContainer">
+		 
+        <!-- CARTILE -->
+		
+		<div id="speciale" class="card-item special-card" data-attack="3000" data-defense="2000" data-location="Altus Plateau" data-card-id="rykard1" >
+              <div class="favorite-btn" >
+				❤️
+			  </div>
+		  <div class="card-image">
+                <img src="card_images\Rykard.png" alt="Card Image Example">
+            </div>
+            <div class="card-details">
+                <h2>Rykard, Lord Of Blasphemy</h2>
+                <p><strong>Ability:</strong> Can devour the gods, he is not affected by any spell or enemy trait, can only be destroyed in battle.</p>
+                <p><strong>Summon:</strong> Special Summon: after 7 reaper kills you can summon Praetor Rykard.</p>
+                <p><strong>Traits: Reaper & Altus Plateau</strong></p>
+				<p><strong>Quote:</strong><i> "Join the Serpent King, as family...Togheter, we will devour the very gods!"</i></p>
+                <ul>
+                    <li><img src="trait_images\AltusPlateau.png" alt="Trait 1 Icon" class="trait-icon"> Altus Plateau</li>
+                    <li><img src="trait_images\Reaper.png" alt="Trait 2 Icon" class="trait-icon"> Reaper</li>
+                </ul>
+                <p><strong>Required Mana:</strong> 0 (Special Summon)
+					<img src="trait_images\SpecialSummon.png" alt="Special Summon Icon" class="trait-icon2">
+				</p>
+				<p><strong>Stats: 3000 Attack & 2000 Defense</strong></p>
+            </div>
+        </div>
+		</div>
+		
+		<!-- Placidusax --> 
+		  <div id="speciale" class="card-item special-card" data-attack="4000" data-defense="2400" data-location="Farum Azula" data-card-id="Placidusax">
+             <div class="favorite-btn" >
+				❤️
+			  </div>
+			
+			<div class="card-image">
+                <img src="card_images\Placidusax.png" alt="Card Image Example">
+            </div>
+            <div class="card-details">
+                <h2>Dragonlord Placidusax</h2>
+                <p><strong>Ability:</strong>Has no ability.</p>
+                <p><strong>Summon:</strong> No special summon.</p>
+                <p><strong>Traits: Dragon & Farum Azula</strong></p>
+				<p><strong>Quote:</strong><i> "The Dragonlord whose seat lies at the heart of the storm beyond time is said to have been Elden Lord in the age before the Erdtree. Once his god was fled, the lord continued to await its return."</i></p>
+                <ul>
+                    <li><img src="trait_images\FarumAzula.png" alt="Trait 1 Icon" class="trait-icon"> FarumAzula</li>
+                    <li><img src="trait_images\Dragon.png" alt="Trait 2 Icon" class="trait-icon"> Dragon</li>
+                </ul>
+                <p><strong>Required Mana:</strong> 12 
+				<p><strong>Stats: 4000 Attack & 2400 Defense</strong></p>
+				</p>	
+            </div>
+        </div>
+		
+		<!-- Mohg -->
+		
+		 <div id="speciale" class="card-item special-card" data-attack="500" data-defense="2400" data-location="Underground" data-card-id="MohgLordOfBlood">
+             <div class="favorite-btn" >
+				❤️
+			  </div>
+			<div class="card-image">
+                <img src="card_images\Mohg, Lord of Blood.png" alt="Card Image Example">
+            </div>
+            <div class="card-details">
+                <h2>Mohg, Lord of Blood</h2>
+                <p><strong>Ability:</strong>After entering the battlefield, he drains all the enemies of 500 defense points every round including the enemy player's health.</p>
+                <p><strong>Summon:</strong>Sacrifice your battlefield to summon Mohg, Lord of Blood (at least 3 cards) while having Mohg, The Omen in the battlefield aswell.</p>
+                <p><strong>Traits: Omen & Demigod & Reaper </strong></p>
+				<p><strong>Quote:</strong><i> "Welcome, honoured guest. To the birthplace of our dynasty!"</i></p>
+                <ul>
+                    <li><img src="trait_images\Underground.png" alt="Trait 1 Icon" class="trait-icon"> Altus Plateau</li>
+                    <li><img src="trait_images\Reaper.png" alt="Trait 2 Icon" class="trait-icon"> Reaper</li>
+					<li><img src="trait_images\Demigod.png" alt="Trait 3 Icon" class="trait-icon"> Demigod</li>
+					<li><img src="trait_images\Omen.png" alt="Trait 4 Icon" class="trait-icon"> Omen</li>
+                </ul>
+                <p><strong>Required Mana:</strong> 0 (Special Summon)
+					<img src="trait_images\SpecialSummon.png" alt="Special Summon Icon" class="trait-icon2">
+				</p>	
+				<p><strong>Stats: 500 Attack & 2400 Defense</strong></p>
+            </div>
+		</div>
+		
+			<!-- Fire Giant -->
+			
+			<div id="speciale" class="card-item special-card" data-attack="1300" data-defense="2500" data-location="Mountaintop Of The Giants" data-card-id="FireGiant">
+             <div class="favorite-btn" >
+				❤️
+			  </div>
+			<div class="card-image">
+                <img src="card_images\Fire Giant.png" alt="Card Image Example">
+            </div>
+            <div class="card-details">
+                <h2>Fire Giant</h2>
+                <p><strong>Ability:</strong>If his attack kills a card, the damage dealt will be dealt to another card next round aditionally to his attack to a different card that he is attacking. This efect repeat untill his attack is not killing an enemy, then this effect restarts next fight.</p>
+                <p><strong>Summon:</strong>Use the forge of the giants on your cards and destroy at least 4 cards to summon the Fire Giant.(one of the cards must have fire in its image)</p>
+                <p><strong>Traits: Others & Mountaintop Of The Giants </strong></p>
+				<p><strong>Quote:</strong><i> "O trifling giant, mayest thou tend thy flame for eternity."</i></p>
+                <ul>
+                    <li><img src="trait_images\Random_Others.png" alt="Trait 1 Icon" class="trait-icon"> Others</li>
+                    <li><img src="trait_images\MountaintopOfTheGiants.png" alt="Trait 2 Icon" class="trait-icon"> Mountaintop Of The Giants</li>
+                </ul>
+                <p><strong>Required Mana:</strong> 0 (Special Summon)
+					<img src="trait_images\SpecialSummon.png" alt="Special Summon Icon" class="trait-icon2">
+				</p>
+				<p><strong>Stats: 1300 Attack & 2500 Defense</strong></p>
+            </div>
+            </div>
+			
+			<!-- Prince of Death --> 
+			
+			<div id="speciale" class="card-item special-card" data-attack="0" data-defense="0" data-location="Underground" data-card-id="PrinceOfDeath">
+             <div class="favorite-btn" >
+				❤️
+			  </div>
+			<div class="card-image">
+                <img src="card_images\The Prince of Death.png" alt="Card Image Example">
+            </div>
+            <div class="card-details">
+                <h2>The Prince of Death</h2>
+                <p><strong>Ability:</strong>He reduces everything on the battlefield to 1 point of defence for you opponent, discard all his cards and destroys every spell. Your opponent can't restore any dead cards, can't use any heal and the spells cost double for the rest of the game.Your opponent can't use any special summon for 5 turns. Any card with special graveyard effects will no longer function for your opponent. Instead of dying, he remains on the battlefield with no further effects.</p>
+                <p><strong></strong>Summon: Needs all 5 contributions of The Prince Of Death.</p>
+                <p><strong>Traits: Demigod & Underground </strong></p>
+				<p><strong>Quote:</strong><i> ""O lord brother, lord brother, please die a true death""</i></p>
+                <ul>
+                    <li><img src="trait_images\Demigod.png" alt="Trait 1 Icon" class="trait-icon"> Demigod</li>
+                    <li><img src="trait_images\Underground.png" alt="Trait 2 Icon" class="trait-icon"> Underground</li>
+                </ul>
+                <p><strong>Required Mana:</strong> 0 (Special Summon)
+					<img src="trait_images\SpecialSummon.png" alt="Special Summon Icon" class="trait-icon2">
+				</p>
+				<p><strong>Stats: 0 Attack & 0 Defense</strong></p>
+            </div>
+			</div>
+			
+			<!-- Queen Marika --> 
+			
+			<div id="speciale" class="card-item special-card" data-attack="1" data-defense="1" data-location="GoldenOrderLeyndell" data-card-id="QueenMarika">
+             <div class="favorite-btn" >
+				❤️
+			  </div>
+			<div class="card-image">
+                <img src="card_images\QueenMarika.png" alt="Card Image Example">
+            </div>
+            <div class="card-details">
+                <h2>Queen Marika</h2>
+                <p><strong>Ability:</strong> Destroys every card on the enemy battlefield, his shields, his mana cards and destroy the cards he's holding in his hand. After she dies she summons Radagon, The second Elden lord.</p>
+                <p><strong></strong>Summon: activates at 5 demigods on you field. Instead of fighting this card, you fight Maliketh. .</p>
+                <p><strong>Traits: Demigod & Golden Order and Leyndell </strong></p>
+				<p><strong>Quote:</strong><i> "Let a new epoch begin. An epoch glistening with life. Brandish the Elden Ring, for the Age of the Erdtree!"</i></p>
+                <ul>
+                    <li><img src="trait_images\Demigod.png" alt="Trait 1 Icon" class="trait-icon"> Demigod</li>
+                    <li><img src="trait_images\GoldenOrderLeyndell.png" alt="Trait 2 Icon" class="trait-icon"> Golden Order & Leyndell</li>
+                </ul>
+                <p><strong>Required Mana:</strong> 0 (Special Summon)
+					<img src="trait_images\SpecialSummon.png" alt="Special Summon Icon" class="trait-icon2">
+				</p>
+				<p><strong>Stats: 1 Attack & 1 Defense</strong></p>
+            </div>
+		</div>
+		
+		<!-- Godfrey -->
+		
+		<div id="speciale" class="card-item special-card" data-attack="2400" data-defense="1400" data-location="GoldenOrderLeyndell" data-card-id="Godfrey">
+             <div class="favorite-btn" >
+				❤️
+			  </div>
+			<div class="card-image">
+                <img src="card_images\Godfrey.png" alt="Card Image Example">
+            </div>
+            <div class="card-details">
+                <h2>Godfrey, The First Elden Lord</h2>
+                <p><strong>Ability:</strong> The first time this card attacks, Godfrey make his own battlefield where he 1v1 every card on the opponent's hand, if he has less than 5 cards, your opponent will draw more cards to make it 5.</p>
+                <p><strong></strong>Summon: Must have Godfrey the golden Shade alive on your battlefield for at least 3 turns, and then you must use the Elden Throne Spell to summon him .</p>
+                <p><strong>Traits: Demigod & Golden Order and Leyndell </strong></p>
+				<p><strong>Quote:</strong><i> "Alas, I am returned. To be granted audience once more. Upon my name as Godfrey, The first Elden Lord!"</i></p>
+                <ul>
+                    <li><img src="trait_images\Demigod.png" alt="Trait 1 Icon" class="trait-icon"> Demigod</li>
+                    <li><img src="trait_images\GoldenOrderLeyndell.png" alt="Trait 2 Icon" class="trait-icon"> Golden Order & Leyndell</li>
+                </ul>
+                <p><strong>Required Mana:</strong> 0 (Special Summon)
+					<img src="trait_images\SpecialSummon.png" alt="Special Summon Icon" class="trait-icon2">
+				</p>
+				<p><strong>Stats: 2400 Attack & 1400 Defense</strong></p>
+            </div>
+		</div>
+		
+		<!-- Malenia, Goddess of Rot -->
+		
+		<div id="speciale" class="card-item special-card" data-attack="2400" data-defense="1800" data-location="Haaligtree" data-card-id="MaleniaRotGoddess">
+             <div class="favorite-btn" >
+				❤️
+			  </div>
+			<div class="card-image">
+                <img src="card_images\MaleniaRotGoddess.png" alt="Card Image Example">
+            </div>
+            <div class="card-details">
+                <h2>Malenia, Rot Goddess</h2>
+                <p><strong>Ability:</strong> One thousand cuts, Malenia can attack 4 times after she is summoned without being put in defensive mode. Can attack twice per round.</p>
+                <p><strong></strong>Summon: if Malenia, Blade of Miquella dies, you can summon this card but also put 2 cards from hand in graveyard.</p>
+                <p><strong>Traits: Demigod & Blood Reaper & Haligtree</strong></p>
+				<p><strong>Quote:</strong><i> "Miquella and Malenia are both the children of a single god. As such they are both Empyreans, but suffered afflictions from birth. One was cursed with eternal childhood, and the other harbored rot within."</i></p>
+                <ul>
+                    <li><img src="trait_images\Demigod.png" alt="Trait 1 Icon" class="trait-icon"> Demigod</li>
+                    <li><img src="trait_images\Haaligtree.png" alt="Trait 2 Icon" class="trait-icon"> Haligtree</li>
+					<li><img src="trait_images\Reaper.png" alt="Trait 3 Icon" class="trait-icon"> Blood Reaper</li>
+                </ul>
+                <p><strong>Required Mana:</strong> 0 (Special Summon)
+					<img src="trait_images\SpecialSummon.png" alt="Special Summon Icon" class="trait-icon2">
+				</p>
+				<p><strong>Stats: 2400 Attack & 1800 Defense</strong></p>
+            </div>
+		</div>
+		
+		
+			<!-- Godrick, The Grafted -->
+		
+		<div id="speciale" class="card-item special-card" data-attack="2200" data-defense="2000" data-location="Limgrave" data-card-id="Godrick">
+             <div class="favorite-btn" >
+				❤️
+			  </div>
+			<div class="card-image">
+                <img src="card_images\Godrick.png" alt="Card Image Example">
+            </div>
+            <div class="card-details">
+                <h2>Godrick the Grafted</h2>
+                <p><strong>Ability:</strong> Every unit that dies after he enters the battle is grafted into him giving him +200 from its best stat.</p>
+                <p><strong></strong>Summon: needs 5 units from your opponent graveyard and 5 from yours.</p>
+                <p><strong>Traits: Demigod & Limgrave and Stormveil</strong></p>
+				<p><strong>Quote:</strong><i> ""</i></p>
+                <ul>
+                    <li><img src="trait_images\Demigod.png" alt="Trait 1 Icon" class="trait-icon"> Demigod</li>
+                    <li><img src="trait_images\Stormveil.png" alt="Trait 2 Icon" class="trait-icon"> Limgrave</li>
+                </ul>
+                <p><strong>Required Mana:</strong> 0 (Special Summon)
+					<img src="trait_images\SpecialSummon.png" alt="Special Summon Icon" class="trait-icon2">
+				</p>
+				<p><strong>Stats: 2200 Attack & 2000 Defense</strong></p>
+            </div>
+		</div>
+		
+		<!-- NORMAL CARDS @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@-->
+		
+		<!-- Black Knife Assassin -->
+		
+		<div id="normale" class="card-item" data-attack="1000" data-defense="1000" data-location="GoldenOrderLeyndell" data-card-id="BlackKnifeAssassin">
+             <div class="favorite-btn" >
+				❤️
+			  </div>
+			<div class="card-image">
+                <img src="card_images\BlackKnifeAssassin.png" alt="Card Image Example">
+            </div>
+            <div class="card-details">
+                <h2>Black Knife Assassin</h2>
+                <p><strong>Ability:</strong> Has +500 damage against Demigods. Negates the Demigods' buffs.</p>
+                <p><strong>Traits: Golden Order & Leyndell & Human</strong></p>
+				<p><strong>Quote:</strong><i> "A group of assassins who were responsible for the murder of Godwyn the Golden on the Night of Black Knives, using blades imbued with the power of death in a ritual performed by Ranni the Witch."</i></p>
+                <ul>
+                    <li><img src="trait_images\Human.png" alt="Trait 1 Icon" class="trait-icon"> Human</li>
+					<li><img src="trait_images\GoldenOrderLeyndell.png" alt="Trait 1 Icon" class="trait-icon"> Golden Order</li>
+                </ul>
+                <p><strong>Required Mana:</strong> 5 
+					
+				</p>
+				<p><strong>Stats: 1000 Attack & 1000 Defense</strong></p>
+            </div>
+		</div>
+		
+		<!-- DemiHumanQueen -->
+		
+		<div id="normale" class="card-item" data-attack="800" data-defense="1000" data-location="GoldenOrderLeyndell" data-card-id="Demi-Human Queen">
+            <div class="favorite-btn" >
+				❤️
+			  </div>
+			<div class="card-image">
+                <img src="card_images\DemiHumanQueen.png" alt="Card Image Example">
+            </div>
+            <div class="card-details">
+                <h2>Demi-Human Queen</h2>
+                <p><strong>Ability:</strong> If you have at least 2 Demi-Humans in the battlefield, Demi-Human Queen creates 1 mana every turn.</p>
+                <p><strong>Traits: Golden Order & Leyndell & Others</strong></p>
+				<p><strong>Quote:</strong><i> " The staves they wield, which are styled as sceptres, were given to the demi-humans to foster peace, but are sneered at by fools at the Academy of Raya Lucaria."</i></p>
+                <ul>
+                    <li><img src="trait_images\Random_Others.png" alt="Trait 1 Icon" class="trait-icon"> Others</li>
+					<li><img src="trait_images\GoldenOrderLeyndell.png" alt="Trait 1 Icon" class="trait-icon"> Golden Order & Leyndell</li>
+                </ul>
+                <p><strong>Required Mana:</strong> 4
+					
+				</p>
+				<p><strong>Stats: 800 Attack & 1000 Defense</strong></p>
+            </div>
+		</div>
+		
+		<!-- FireWatchdog -->
+		
+		<div id="normale" class="card-item" data-attack="300" data-defense="900" data-location="Limgrave" data-card-id="FireWatchdog">
+            <div class="favorite-btn" >
+				❤️
+			  </div>
+			<div class="card-image">
+                <img src="card_images\FireWatchdog.png" alt="Card Image Example">
+            </div>
+            <div class="card-details">
+                <h2>Fire Burial Watchdog</h2>
+                <p><strong>Ability:</strong> This card breathe fire and return all the cards from your battlefield to your hand.(except the Special summons)</p>
+                <p><strong>Traits: Golden Order & Leyndell & Others</strong></p>
+				<p><strong>Quote:</strong><i> "A three-headed Watchdog accompanied by four Imps. It can breathe fire from all three of its mouths."</i></p>
+                <ul>
+                    <li><img src="trait_images\Random_Others.png" alt="Trait 1 Icon" class="trait-icon"> Others</li>
+					<li><img src="trait_images\Stormveil.png" alt="Trait 1 Icon" class="trait-icon"> Limgrave & Stormveil</li>
+                </ul>
+                <p><strong>Required Mana:</strong> 4
+					
+				</p>
+				<p><strong>Stats: 300 Attack & 900 Defense</strong></p>
+            </div>
+		</div>
+		
+		<!-- BurialWatchdog -->
+	
+		<div id="normale" class="card-item" data-attack="1500" data-defense="1000" data-location="GoldenOrderLeyndell" data-card-id="BurialWatchdog">
+            <div class="favorite-btn" >
+				❤️
+			  </div>
+			<div class="card-image">
+                <img src="card_images\BurialWatchdog.png" alt="Card Image Example">
+            </div>
+            <div class="card-details">
+                <h2>Erdtree Burial Watchdog</h2>
+                <p><strong>Traits: Golden Order & Leyndell & Reaper & Beast</strong></p>
+				<p><i><strong>Quote: </strong>"Living statues resembling beasts, with hunched bodies and long, cat-like tails. They are the protectors of catacombs where Erdtree burial took place, and are said to command the Imps."</i></p>
+                <ul>
+                    <li><img src="trait_images\Reaper.png" alt="Trait 1 Icon" class="trait-icon"> Reaper</li>
+					<li><img src="trait_images\GoldenOrderLeyndell.png" alt="Trait 1 Icon" class="trait-icon"> Golden Order</li>
+					<li><img src="trait_images\Beast.png" alt="Trait 1 Icon" class="trait-icon"> Beast</li>
+				</ul>
+                <p><strong>Required Mana:</strong> 0 (Special Summon: Beast)
+					<img src="trait_images\SpecialSummon.png" alt="Special Summon Icon" class="trait-icon2">
+				</p>
+				<p><strong>Stats: 1500 Attack & 1000 Defense</strong></p>
+            </div>
+		</div>
+		
+		<!-- SPELLS SPELLS SPELLS SPELLS SPELLS SPELLS SPELLS SPELLS SPELLS SPELLS SPELLS SPELLS SPELLS SPELLS SPELLS SPELLS SPELLS SPELLS SPELLS SPELLS SPELLS SPELLS SPELLS SPELLS SPELLS SPELLS SPELLS SPELLS -->
+		
+		<!-- Eye of Godwyn SPELL -->
+		<div id="spells" class="card-item" data-card-id="EyeOfGodwyn">
+    <div class="card-image">
+        <img src="card_images\EyeOfGodwyn.png" alt="Card Image Example">
+    </div>
+	<div class="favorite-btn" >
+				❤️
+			  </div>
+    <div class="card-details">
+        <h2>The Eye of Godwyn</h2>
+        <p><strong>Ability:</strong> Activate this spell and your opponent must search all of his Special Summon cards in his deck and put them face up for the rest of the game, then the opponent must shuffle his deck again.</p>
+        <p><strong>Traits: Spell Card</strong></p>
+        <p><strong>Quote:</strong><i> "On a night of wint'ry fog, the rune of Death was stolen. And the demigods began to fall, starting with Godwyn the Golden."</i></p>
+        <p><strong>Required Mana:</strong> 6</p>
+		</div>
+	</div>
+
+		<!-- Ambush SPELL -->
+		<div id="spells" class="card-item" data-card-id="Ambush">
+    <div class="card-image">
+        <img src="card_images\Ambush.png" alt="Card Image Example">
+    </div>
+	<div class="favorite-btn" >
+				❤️
+			  </div>
+    <div class="card-details">
+        <h2>Ambush</h2>
+        <p><strong>Ability:</strong> 1) When activated it lets you attack one card that is in defense mode but count its attack instead of the defense. 2) You can attack one card from the oponnent's hand.You must choose between the first and the second effect.</p>
+        <p><strong>Traits: Spell Card</strong></p>
+        <p><strong>Quote:</strong><i> "In the silence of shadows, where footsteps falter and light wanes, the hunter becomes the prey."</i></p>
+        <p><strong>Required Mana:</strong> 4</p>
+		</div>
+	</div>
+		
+			<!-- Cerulean Tears SPELL -->
+		<div id="spells" class="card-item" data-card-id="CeruleanTears">
+    <div class="card-image">
+        <img src="card_images\CeruleanTears.png" alt="Card Image Example">
+    </div>
+	<div class="favorite-btn" >
+				❤️
+			  </div>
+    <div class="card-details">
+        <h2>Flask of Cerulean Tears</h2>
+        <p><strong>Ability:</strong> This Flask adds 3 mana to the player this turns.</p>
+        <p><strong>Traits: Spell Card</strong></p>
+        <p><strong>Quote:</strong><i> "The one washed up on the gravesite was sure to die, until this flask offered its gift of rejuvenation."</i></p>
+        <p><strong>Required Mana:</strong> 1</p>
+		</div>
+	</div>
+	
+			<!-- Crimson Tears SPELL -->
+		<div id="spells" class="card-item" data-card-id="CrimsonTears">
+    <div class="card-image">
+        <img src="card_images\CrimsonTears.png" alt="Card Image Example">
+    </div>
+	<div class="favorite-btn" >
+				❤️
+			  </div>
+    <div class="card-details">
+        <h2>Flask of Crimson Tears</h2>
+        <p><strong>Ability:</strong> This Flask restore 2000hp directly to the player. </p>
+        <p><strong>Traits: Spell Card</strong></p>
+        <p><strong>Quote:</strong><i> "A sacred flask modelled after a golden holy chalice that was once graced by a tear of life."</i></p>
+        <p><strong>Required Mana:</strong>4</p>
+		</div>
+	</div>
+	
+			<!-- Demigods War SPELL -->
+		<div id="spells" class="card-item" data-card-id="DemigodsWar">
+    <div class="card-image">
+        <img src="card_images\DemigodsWar.png" alt="Card Image Example">
+    </div>
+	<div class="favorite-btn" >
+				❤️
+			  </div>
+    <div class="card-details">
+        <h2>The Demigods War</h2>
+        <p><strong>Ability:</strong> When you activate this card, the game ends in 10 turns, the winner will be the one who has more health points at the end of these turns, or who has more cards on the battlefield with more hp if the players healths are the same. </p>
+        <p><strong>Traits: Spell Card</strong></p>
+        <p><strong>Quote:</strong><i> "Being two of the mightiest demigods, Radahn and Malenia fought until a stalemate, and then the Scarlet Aeonia bloomed and changed Caelid forever..."</i></p>
+        <p><strong>Required Mana:</strong>4</p>
+		</div>
+	</div>
+	
+			<!-- DiscoveryAltusPlateau SPELL -->
+		<div id="spells" class="card-item" data-card-id="DiscoveryAltusPlateau">
+    <div class="card-image">
+        <img src="card_images\DiscoveryAltusPlateau.png" alt="Card Image Example">
+    </div>
+	<div class="favorite-btn" >
+				❤️
+			  </div>
+    <div class="card-details">
+        <h2>The Discovery of Altus Plateau</h2>
+        <p><strong>Ability:</strong> Adds the Altus Plateau trait to one unit. </p>
+        <p><strong>Traits: Spell Card</strong></p>
+        <p><strong>Quote:</strong><i> "Bathed in golden light, the plateau rises like a sanctum of the gods its splendor untouched by time, yet heavy with the whispers of battles long past."</i></p>
+        <p><strong>Required Mana:</strong>3</p>
+		</div>
+	</div>
+	
+			<!-- DragonBattle SPELL -->
+		<div id="spells" class="card-item" data-card-id="DragonBattle">
+    <div class="card-image">
+        <img src="card_images\DragonBattle.png" alt="Card Image Example">
+    </div>
+	<div class="favorite-btn" >
+				❤️
+			  </div>
+    <div class="card-details">
+        <h2>The Dragon Battle</h2>
+        <p><strong>Ability:</strong> Target one dragon and destroy it(Lord Placidusax cannot be destroyed with this card). </p>
+        <p><strong>Traits: Spell Card</strong></p>
+        <p><strong>Quote:</strong><i> "Through fire and fury, the beast roared its last its mighty wings silenced by the blade that dared defy the heavens."</i></p>
+        <p><strong>Required Mana:</strong>4</p>
+		</div>
+	</div>
+	
+        <!-- FingerReader SPELL -->
+		<div id="spells" class="card-item" data-card-id="FingerReader">
+    <div class="card-image">
+        <img src="card_images\FingerReader.png" alt="Card Image Example">
+    </div>
+	<div class="favorite-btn" >
+				❤️
+			  </div>
+    <div class="card-details">
+        <h2>Finger Reader</h2>
+        <p><strong>Ability:</strong> After you killed a card with special abilities, you can take that ability and apply it on one of your cards even if the card already have an ability. You can not use this on a Special Summon.  </p>
+        <p><strong>Traits: Spell Card</strong></p>
+        <p><strong>Quote:</strong><i> "The Fingers guide us all. And you Tarnished, you are here to take, are you not?"</i></p>
+        <p><strong>Required Mana:</strong>2</p>
+		</div>
+	</div>
+	
+        <!-- Godwyn  SPELL -->
+		<div id="spells" class="card-item" data-card-id="Godwyn">
+    <div class="card-image">
+        <img src="card_images\Godwyn.png" alt="Card Image Example">
+    </div>
+	<div class="favorite-btn" >
+				❤️
+			  </div>
+    <div class="card-details">
+        <h2>Godwyn The Golden</h2>
+        <p><strong>Ability:</strong> Contribute to the summon of The Prince of Death. This spell after activation is remaining active for the rest of the game only to contribute to the summon. Only 3 turns after activation: Every card killed in battle is traveling to this card holder graveyard.  </p>
+        <p><strong>Traits: Spell Card</strong></p>
+        <p><strong>Quote:</strong><i> "First demigod to die. The rune of death was stolen. And the demigods began to fall, starting with Godwyn the Golden."</i></p>
+        <p><strong>Required Mana:</strong>3</p>
+		</div>
+	</div>
+	
+         <!-- GodwynsFriendship  SPELL -->
+		<div id="spells" class="card-item" data-card-id="GodwynsFriendship">
+    <div class="card-image">
+        <img src="card_images\GodwynsFriendship.png" alt="Card Image Example">
+    </div>
+	<div class="favorite-btn" >
+				❤️
+			  </div>
+    <div class="card-details">
+        <h2>Godwyn's Friendship</h2>
+        <p><strong>Ability:</strong> Godwyn befriends a dragon and brings him to your team. You choose a dragon your enemy put into the battlefield and add it to you deck then shuffle the deck.  </p>
+        <p><strong>Traits: Spell Card</strong></p>
+        <p><strong>Quote:</strong><i> "Godwyn was triumphant in a battle against the dreaded Fortissax and earned the mighty dragon's friendship in the process"</i></p>
+        <p><strong>Required Mana:</strong>6</p>
+		</div>
+	</div>
+	
+        <!-- HorseBattle  SPELL -->
+		<div id="spells" class="card-item" data-card-id="HorseBattle">
+    <div class="card-image">
+        <img src="card_images\HorseBattle.png" alt="Card Image Example">
+    </div>
+    <div class="card-details">
+        <h2>Horse Battle</h2>
+        <p><strong>Ability:</strong> You and your opponent choose one card from the hand, show them and whoever has the better card in attack+defense, is allowed to put it with no cost and gain +500 attack (No Special Summons)  </p>
+        <p><strong>Traits: Spell Card</strong></p>
+        <p><strong>Quote:</strong><i> "Hooves thunder like drums of war, blades gleam in the rising dust chaos and valor clash in the gallop of fate"</i></p>
+        <p><strong>Required Mana:</strong>3</p>
+		</div>
+	</div>
+	
+            <!-- MarikaAscension  SPELL -->
+		<div id="spells" class="card-item" data-card-id="MarikaAscension">
+    <div class="card-image">
+        <img src="card_images\MarikaAscension.png" alt="Card Image Example">
+    </div>
+	<div class="favorite-btn" >
+				❤️
+			  </div>
+    <div class="card-details">
+        <h2>Marika Ascension</h2>
+        <p><strong>Ability:</strong> Used to make a card demigod for 4 turns.</p>
+        <p><strong>Traits: Spell Card</strong></p>
+        <p><strong>Quote:</strong><i> "She ascended to godhood at the Gate of Divinity atop the tower of Enir-Ilim, becoming the vessel for the Elden Ring."</i></p>
+        <p><strong>Required Mana:</strong>4</p>
+		</div>
+	</div>
+	
+         <!-- MixFlask SPELL -->
+		<div id="spells" class="card-item" data-card-id="MixFlask">
+    <div class="card-image">
+        <img src="card_images\MixFlask.png" alt="Card Image Example">
+    </div>
+	<div class="favorite-btn" >
+				❤️
+			  </div>
+    <div class="card-details">
+        <h2>Flask Of Cerulean Tears</h2>
+        <p><strong>Ability:</strong> You can add one trait effect to one card you choose. You add the first bonus of the trait.If the card already have the trait bonus you choose, upgrade the trait to the next level for that card(example: 2 demigods, add this card and makes the trait as 3 demigods for that card).</p>
+        <p><strong>Traits: Spell Card</strong></p>
+        <p><strong>Quote:</strong><i> "A relic of the physick chemists, priests of the Erdtree. Harnesses the powers of crystal tears, which only form after the passage of many moons."</i></p>
+        <p><strong>Required Mana:</strong>3</p>
+		</div>
+	</div>
+	
+        <!-- PraiseTheSun SPELL -->
+		<div id="spells" class="card-item" data-card-id="PraiseTheSun">
+    <div class="card-image">
+        <img src="card_images\PraiseTheSun.png" alt="Card Image Example">
+    </div>
+	<div class="favorite-btn" >
+				❤️
+			  </div>
+    <div class="card-details">
+        <h2>Praise the Sun</h2>
+        <p><strong>Ability:</strong> Reveals all the shields of your opponent.</p>
+        <p><strong>Traits: Spell Card</strong></p>
+        <p><strong>Quote:</strong><i> "Blessings once fell like tears from the Erdtree, and this incantation is but a lingering remnant of their power."</i></p>
+        <p><strong>Required Mana:</strong>2</p>
+		</div>
+	</div>
+	
+			<!-- RadagonForge SPELL -->
+		<div id="spells" class="card-item" data-card-id="RadagonForge">
+    <div class="card-image">
+        <img src="card_images\RadagonForge.png" alt="Card Image Example">
+    </div>
+    <div class="card-details">
+        <h2>Radagon Forge</h2>
+        <p><strong>Ability:</strong> Radagon of the Golden Order forge a ring that gives +500 defense points to one of your units.</p>
+        <p><strong>Traits: Spell Card</strong></p>
+        <p><strong>Quote:</strong><i> "Bathed in golden light, the plateau rises like a sanctum of the gods its splendor untouched by time, yet heavy with the whispers of battles long past."</i></p>
+        <p><strong>Required Mana:</strong>3</p>
+		</div>
+	</div>
+		
+			<!-- DiscoveryLiurnia SPELL -->
+		<div id="spells" class="card-item" data-card-id="DiscoveryLiurnia">
+    <div class="card-image">
+        <img src="card_images\DiscoveryLiurnia.png" alt="Card Image Example">
+    </div>
+	<div class="favorite-btn" >
+				❤️
+			  </div>
+    <div class="card-details">
+        <h2>The Discovery of Liurnia</h2>
+        <p><strong>Ability:</strong> Adds the Liurnia trait to one of your cards + gives you 3 aditional mana this turn.</p>
+        <p><strong>Traits: Spell Card</strong></p>
+        <p><strong>Quote:</strong><i> "Once a kingdom of wisdom and wonder, now a shimmering expanse where waters cradle the ruins of lost power magic lingers still, in every ripple and shadow."</i></p>
+        <p><strong>Required Mana:</strong>4</p>
+		</div>
+	</div>
+	
+			<!-- Slash SPELL -->
+		<div id="spells" class="card-item" data-card-id="Slash">
+    <div class="card-image">
+        <img src="card_images\Slash.png" alt="Card Image Example">
+    </div>
+	<div class="favorite-btn" >
+				❤️
+			  </div>
+    <div class="card-details">
+        <h2>Slash</h2>
+        <p><strong>Ability:</strong> Pierce both enemies with the blade to make both lose 2000 hp.</p>
+        <p><strong>Traits: Spell Card</strong></p>
+        <p><strong>Quote:</strong><i> "A single arc of steel, swift and unforgiving leaving nothing but echoes and silence in its wake"</i></p>
+        <p><strong>Required Mana:</strong>5</p>
+		</div>
+	</div>
+	
+        <!-- SpellBarrier SPELL -->
+		<div id="spells" class="card-item" data-card-id="SpellBarrier">
+    <div class="card-image">
+        <img src="card_images\SpellBarrier.png" alt="Card Image Example">
+    </div>
+	<div class="favorite-btn" >
+				❤️
+			  </div>
+    <div class="card-details">
+        <h2>Spell Barrier</h2>
+        <p><strong>Ability:</strong> Can absorb the attacks targeted at one of you cards of Liurnia cards for 1 turn(you choose the card).</p>
+        <p><strong>Traits: Spell Card</strong></p>
+        <p><strong>Quote:</strong><i> "Invisible yet unyielding, it stands as a fortress against the arcane storm—protecting all within from the wrath of magic"</i></p>
+        <p><strong>Required Mana:</strong>2</p>
+		</div>
+	</div>
+	
+			<!-- TheEldenThrone SPELL -->
+		<div id="spells" class="card-item" data-card-id="TheEldenThrone">
+    <div class="card-image">
+        <img src="card_images\TheEldenThrone.png" alt="Card Image Example">
+    </div>
+	<div class="favorite-btn" >
+				❤️
+			  </div>
+    <div class="card-details">
+        <h2>The Elden Throne</h2>
+        <p><strong>Ability:</strong> This card is used to summon the first Elden Lord, Godfrey.</p>
+        <p><strong>Traits: Spell Card</strong></p>
+        <p><strong>Quote:</strong><i> "The Elden Throne is found in Leyndell, Royal Capital. You can reach the Elden Throne through the Queen's Bedchamber."</i></p>
+        <p><strong>Required Mana:</strong>3</p>
+		</div>
+	</div>
+	
+			<!-- TheShattering SPELL -->
+		<div id="spells" class="card-item" data-card-id="TheShattering">
+    <div class="card-image">
+        <img src="card_images\TheShattering.png" alt="Card Image Example">
+    </div>
+	<div class="favorite-btn" >
+				❤️
+			  </div>
+    <div class="card-details">
+        <h2>The Shattering</h2>
+        <p><strong>Ability:</strong> Queen Marika shatters the ring and make your opponent's traits have no effects for 4 turns and select one card each turn to make his abilities unusable that turn only.</p>
+        <p><strong>Traits: Spell Card</strong></p>
+        <p><strong>Quote:</strong><i> "Bathed in golden light, the plateau rises like a sanctum of the gods its splendor untouched by time, yet heavy with the whispers of battles long past."</i></p>
+        <p><strong>Required Mana:</strong>5</p>
+		</div>
+	</div>
+	
+			<!-- TNOTBK SPELL -->
+		<div id="spells" class="card-item" data-card-id="TNOTBK">
+    <div class="card-image">
+        <img src="card_images\TNOTBK.png" alt="Card Image Example">
+    </div>
+	<div class="favorite-btn" >
+				❤️
+			  </div>
+    <div class="card-details">
+        <h2>The Night Of The Black Knives</h2>
+        <p><strong>Ability:</strong> Target a special summon and kill it in the next round. It doesnt work on Maliketh.</p>
+        <p><strong>Traits: Spell Card</strong></p>
+        <p><strong>Quote:</strong><i> "It happened during the Golden Age of the Erdtree, long before the shattering of the Elden Ring. Someone stole a fragment of the Rune of Death from Maliketh, the Black Blade. And on a bitter night, murdered Godwyn the Golden."</i></p>
+        <p><strong>Required Mana:</strong>9</p>
+		</div>
+	</div>
+	
+        <!-- TwoFingers SPELL -->
+		<div id="spells" class="card-item" data-card-id="TwoFingers">
+    <div class="card-image">
+        <img src="card_images\TwoFingers.png" alt="Card Image Example">
+    </div>
+	<div class="favorite-btn" >
+				❤️
+			  </div>
+    <div class="card-details">
+        <h2>Two Fingers</h2>
+        <p><strong>Ability:</strong> If you have killed a Special Summon unit, you can take his abilities and use them on one of your cards for 1 turn.</p>
+        <p><strong>Traits: Spell Card</strong></p>
+        <p><strong>Quote:</strong><i> "Fingers cannot speak, yet these were eloquent. Persistently did they wriggle, spelling out mysteries in the air. Thus did we gain the words. The words of our faith."</i></p>
+        <p><strong>Required Mana:</strong>4</p>
+		</div>
+	</div>
+	
+        <!-- alte carti dupa acelasi model -->
+	
+		
+	</div>	<!-- de la cardContainer --> 
+			<div id="pagination"></div>
+    </main>
+
+<footer>
+  <div class="footer-content">
+    <img src="others/caracter1.png" alt="Caracter 1" class="footer-char left">
+    
+    <div class="footer-center">
+      <p>&copy; The Elden Lord Card Game shop</p>
+      <div class="footer-support">
+        <img src="others/telephone.png" alt="Telefon" class="footer-icon">
+        Suport telefonic la <strong>+40 722 123 456</strong><br>
+        Suport online la tiberiuflorin.padurean@ublsibiu.ro</a>
+      </div>
+    </div>
+
+    <img src="others/caracter3.png" alt="Caracter 3" class="footer-char right">
+  </div>
+</footer>
+	
+	<script>
+    document.querySelectorAll('.card-item').forEach(card => {
+        card.addEventListener('mousemove', (e) => {
+            const rect = card.getBoundingClientRect();
+            const x = e.clientX - rect.left - rect.width / 2;
+            const y = e.clientY - rect.top - rect.height / 2;
+            card.style.transform = `scale(1.05) translate(${x * 0.05}px, ${y * 0.05}px)`;
+        });
+
+        card.addEventListener('mouseleave', () => {
+            card.style.transform = 'scale(1)';
+        });
+
+        card.addEventListener('mousedown', () => {
+            card.style.transform = 'scale(1.1)';
+        });
+
+        card.addEventListener('mouseup', () => {
+            card.style.transform = 'scale(1.05)';
+        });
+    });
+    </script>
+	<!--Bara de search -->
+	<script>
+    document.getElementById('searchButton').addEventListener('click', () => {
+        const searchValue = document.getElementById('searchInput').value.toLowerCase();
+        const cards = document.querySelectorAll('.card-item');
+        let found = false;
+
+        cards.forEach(card => {
+            const cardName = card.querySelector('h2').textContent.toLowerCase();
+            if (cardName.includes(searchValue)) {
+                card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                card.style.border = '2px solid #007BFF'; // evidentiaza cartea gasita
+                setTimeout(() => card.style.border = '', 2000); // Elimina evidentierea dupa 2 secunde
+                found = true;
+            }
+        });
+
+        if (!found) {
+            alert('Nu s-a găsit nicio carte cu acest nume.');
+        }
+    });
+</script>
+
+<!-- butonul de mers inapoi sus pe pagina -->
+<button id="scrollToTopBtn" title="Go to top">↑</button>
+	<script>
+    // Referinta butonului
+    const scrollToTopBtn = document.getElementById("scrollToTopBtn");
+
+    // Afiseaza butonul cand scrollezi mai jos de 300px
+    window.onscroll = function () {
+        if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+            scrollToTopBtn.style.display = "block";
+        } else {
+            scrollToTopBtn.style.display = "none";
+        }
+    };
+
+    // Cand dai click pe buton, du-te sus
+    scrollToTopBtn.onclick = function () {
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth" // Scroll lin
+        });
+    };
+	
+	</script>
+
+<script src="user_script.js"</script>
+<script src="signup_login_script.js"</script>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    fetch("user-status.php")
+        .then(response => response.json())
+        .then(data => {
+            const userMenu = document.querySelector(".dropdown-menu");
+            if (data.loggedIn) {
+                userMenu.innerHTML = `
+                    <p class="username-display">👤 ${data.username}</p>
+                    <a href="logout.php">Deconectați-vă</a>
+                    <a href="cos.html">Coș</a>
+                    <a href="orders.html">Comenzile Mele</a>
+					<a href="cont.html">Cont</a>
+                `;
+            }
+        });
+});
+</script>
+
+
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const username = localStorage.getItem("username");
+    const isLoggedIn = localStorage.getItem("isLoggedIn");
+
+    const usernameDisplay = document.getElementById("usernameDisplay");
+    const loginLink = document.getElementById("loginLink");
+    const signupLink = document.getElementById("signupLink");
+    const logoutLink = document.getElementById("logoutLink");
+
+    if (isLoggedIn === "true" && username) {
+        usernameDisplay.textContent = username;
+        usernameDisplay.style.display = "inline-block";
+
+        loginLink.style.display = "none";
+        signupLink.style.display = "none";
+        logoutLink.style.display = "inline-block";
+    } else {
+        usernameDisplay.style.display = "none";
+        loginLink.style.display = "inline-block";
+        signupLink.style.display = "inline-block";
+        logoutLink.style.display = "none";
+    }
+
+    // Logout: resetăm localStorage
+    logoutLink.addEventListener("click", function (e) {
+        e.preventDefault();
+        localStorage.removeItem("username");
+        localStorage.setItem("isLoggedIn", "false");
+        window.location.href = "html.html"; // sau pagina ta principală
+    });
+});
+</script>
+
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,969 @@
+/* Stilizare generală */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-image: url('elden_ring_wallpaper.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+
+}
+
+header {
+    background-image: url("others/NightreignBG.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: white;
+    position: relative;
+    z-index: 1;
+	padding: 10px 0;
+	text-align: center;
+}
+
+/* Adăugăm o suprapunere ușoară pentru lizibilitate */
+header::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* semi-transparent overlay */
+    z-index: -1;
+}
+
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+nav ul li a:hover {
+    color: gold;
+}
+
+/* Fundal transparent pentru secțiunea principală */
+main {
+    padding: 20px;
+    max-width: 900px;
+    margin: 0 auto;
+    background-color: rgba(255, 255, 255, 0.8); /* Fundal alb semi-transparent */
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5); /* Adaugă umbră pentru contrast */
+	flex: 1;
+}
+
+/* Stilizare pentru footer */
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+/* Stil pentru carti */
+.card-item {
+    display: flex;
+    align-items: center;
+    margin: 20px 0;
+    padding: 15px;
+    border: 2px solid rgba(255, 215, 0, 0.7); /* Bordura aurie transparenta */
+    border-radius: 8px;
+    background-color: rgba(255, 215, 0, 0.1); /* Fundal auriu*/
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3); /* Umbra pentru contrast */
+}
+
+.card-image {
+    flex: 1;
+    max-width: 150px;
+    margin-right: 20px;
+}
+
+.card-image img {
+    width: 100%;
+    border-radius: 5px;
+}
+
+.card-details {
+    flex: 2;
+}
+
+.card-details h2 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+.card-details p {
+    margin: 5px 0;
+}
+
+.trait-icon {
+    width: 25px;
+    height: 25px;
+    vertical-align: middle;
+    margin-left: 5px;
+}
+
+/* Efect de marire si miscare la hover si click */
+.card-item {
+    position: relative;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+.card-item:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+}
+
+.card-item:active {
+    transform: scale(1.1);
+}
+
+/* Stiluri pentru secțiunea de reguli */
+.rules-section {
+    margin-top: 30px;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+}
+
+.rules-section h1, .rules-section h2 {
+    color: gold;
+    margin-bottom: 15px;
+}
+
+.rules-section p {
+    margin-bottom: 10px;
+    line-height: 1.8;
+}
+
+.rules-section strong {
+    color: #00ccff;
+    font-weight: bold;
+}
+
+.rules-section .game-rules {
+    border-left: 5px solid gold;
+    padding-left: 15px;
+    margin-bottom: 20px;
+}
+
+.rules-section .advanced-rules {
+    border-left: 5px solid #ff4500;
+    padding-left: 15px;
+}
+
+/* Liste punctate în secțiunea de reguli */
+.rules-section ul {
+    list-style-type: disc;
+    margin-left: 20px;
+}
+
+.rules-section ul li {
+    margin-bottom: 8px;
+}
+.trait-icon {
+    width: 40px; /* Dimensiunea implicită mai mare */
+    height: 40px; /* Dimensiunea implicită mai mare */
+    vertical-align: middle;
+    margin-left: 5px;
+    transition: transform 0.3s ease; /* Tranziție lină pentru efect */
+}
+.trait-icon2 {
+    width: 30px; /* Dimensiunea implicită mai mare */
+    height: 30px; /* Dimensiunea implicită mai mare */
+    vertical-align: middle;
+    margin-left: 5px;
+    transition: transform 0.3s ease; /* Tranziție lină pentru efect */
+}
+.trait-icon:hover {
+    transform: scale(1.3); /* Mărește iconița la hover */
+}
+
+.submenu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding: 10px;
+    background-color: #f5f5f5;
+    border-radius: 5px;
+}
+
+.submenu ul {
+    list-style: none;
+    display: flex;
+    gap: 15px;
+    margin: 0;
+    padding: 0;
+}
+
+.submenu ul li {
+    display: inline;
+}
+
+.submenu ul li a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+}
+
+.submenu ul li a:hover {
+    text-decoration: underline;
+}
+
+.search-bar {
+    display: flex;
+    gap: 10px;
+}
+
+.search-bar input {
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    width: 200px;
+}
+
+.search-bar button {
+    padding: 5px 10px;
+    border: none;
+    background-color: #007BFF;
+    color: white;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.search-bar button:hover {
+    background-color: #0056b3;
+}
+
+#scrollToTopBtn {
+    display: none; /* Ascuns inițial */
+    position: fixed;
+    bottom: 20px; /* Distanță de jos */
+    right: 20px; /* Distanță de dreapta */
+    z-index: 1000; /* Apare peste alte elemente */
+    background-color: #333; /* Fundal */
+    color: white; /* Culoarea textului */
+    border: none; /* Fără bordură */
+    border-radius: 50%; /* Formă rotundă */
+    padding: 10px 15px; /* Dimensiune */
+    cursor: pointer; /* Cursor pointer */
+    font-size: 18px; /* Dimensiunea textului */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Umbră */
+    transition: background-color 0.3s ease; /* Tranziție pentru hover */
+}
+
+#scrollToTopBtn:hover {
+    background-color: gold; /* Schimbă culoarea la hover */
+}
+
+/* Stil pentru iconița user */
+.user-menu {
+    position: relative;
+    display: inline-block;
+    margin-right: 20px;
+}
+
+.user-icon {
+    width: 32px;
+    height: 32px;
+    cursor: pointer;
+    border-radius: 50%;
+    transition: transform 0.3s;
+}
+
+.user-icon:hover {
+    transform: scale(1.1);
+}
+
+/* Stil pentru meniul dropdown */
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 40px;
+    right: 0;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    z-index: 1000;
+    text-align: left;
+    width: 150px;
+}
+
+.dropdown-menu a {
+    display: block;
+    color: #333;
+    text-decoration: none;
+    padding: 8px 10px;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+.dropdown-menu a:hover {
+    background-color: #f0f0f0;
+}
+
+/* Afișarea meniului dropdown la hover */
+.user-menu:hover .dropdown-menu {
+    display: block;
+}
+
+/* CSS pentru sign up si login */
+
+.signup-container {
+    width: 300px;
+    margin: 50px auto;
+    padding: 50px;
+    border: 11px solid #ccc;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.signup-container h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.signup-container label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+.signup-container input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.signup-container button {
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.signup-container button:hover {
+    background-color: #0056b3;
+}
+
+#signupMessage {
+    text-align: center;
+    color: green;
+    font-weight: bold;
+}
+
+.pack-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    padding: 20px;
+}
+
+.pack {
+    background: #f8f8f8;
+    padding: 15px;
+    border-radius: 10px;
+    text-align: center;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.pack img {
+    width: 120px;
+    height: auto;
+}
+
+.pack h2 {
+    font-size: 18px;
+    margin: 10px 0;
+}
+
+.pack .price {
+    font-size: 16px;
+    color: #d9534f;
+    font-weight: bold;
+}
+
+.pack:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Special Pack */
+.special-pack {
+    border: 3px solid gold;
+    background: linear-gradient(120deg, #fff8dc, #ffeb8a);
+}
+
+.favorite-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #ccc;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.favorite-btn.active {
+    background-color: red;
+    color: white;
+}
+.pack.special-pack {
+    position: relative;
+    padding: 20px;
+    border-radius: 10px;
+    overflow: hidden; /* Previne depășirea fundalului */
+    background: #fff8dc; /* Un fundal de siguranță pentru text */
+}
+
+/* Fundalul bosses1.png este semi-transparent */
+.pack.special-pack::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url("packs/bosses1.png") no-repeat center;
+    background-size: cover;
+    opacity: 0.4; /* Doar fundalul este transparent */
+    z-index: 0; /* Se află în spatele conținutului */
+}
+
+/* Tot conținutul rămâne vizibil și neafectat */
+.pack.special-pack * {
+    position: relative;
+    z-index: 1; /* Asigură că tot ce este în interior rămâne deasupra fundalului */
+    opacity: 1; /* Conținutul este complet vizibil */
+}
+.pack .price {
+    font-size: 18px; /* Mărește puțin textul */
+    font-weight: bold; /* Îngroașă textul */
+    color: black; /* Face textul complet negru */
+    text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.6); /* Adaugă o ușoară umbră albă pentru contrast */
+}
+
+/* Mega Pack */
+.pack.mega-pack {
+    position: relative;
+    padding: 20px;
+    border-radius: 10px;
+    overflow: hidden;
+    background: rgba(255, 248, 220, 0.9); /* Fundal mai opac pentru claritate */
+    text-align: center; /* Aliniere mai bună a conținutului */
+}
+
+/* Fundal bosses2.png */
+.pack.mega-pack::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url("packs/bosses2.png") no-repeat center;
+    background-size: cover;
+    opacity: 0.3;
+    z-index: 0;
+}
+
+/* Asigură că tot conținutul rămâne vizibil */
+.pack.mega-pack * {
+    position: relative;
+    z-index: 1;
+}
+
+/* Poza cu pack3.png (centrată mai bine) */
+.pack.mega-pack img {
+    display: block;
+    margin: 0 auto; /* Centrare perfectă */
+    width: 150px; /* Ajustează mărimea dacă e nevoie */
+}
+
+/* Tag-ul OFERTA SPECIALĂ */
+.promo-tag {
+    position: absolute;
+    top: 5px;  /* Mutat mai sus */
+    left: 1px; /* Mutat spre stânga */
+    background: red;
+    color: white;
+    font-weight: bold;
+    padding: 5px 15px;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+/* Titlul pachetului */
+.pack.mega-pack h2 {
+    font-size: 20px;
+    font-weight: bold;
+    color: black;
+    text-shadow: 2px 2px 5px rgba(255, 255, 255, 0.7);
+}
+
+/* Prețul să fie mai vizibil */
+.pack.mega-pack .price {
+    font-size: 18px;
+    font-weight: bold;
+    color: black;
+    text-shadow: 2px 2px 5px rgba(255, 255, 255, 0.7);
+}
+
+/* Caseta unde e cantitatea și butonul */
+.pack.mega-pack .quantity-container {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 5px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+/* Pachetele normale */
+.pack {
+    position: relative;
+    padding: 20px;
+    border-radius: 10px;
+    overflow: hidden;
+    background: rgba(255, 248, 220, 0.9); /* Fundal mai opac */
+    text-align: center;
+}
+
+/* Fundal tarnished_pack.png */
+.pack::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url("packs/tarnished_pack.png") no-repeat center;
+    background-size: cover;
+    opacity: 0.3;
+    z-index: 0;
+}
+
+/* Asigură că tot conținutul rămâne vizibil */
+.pack * {
+    position: relative;
+    z-index: 1;
+}
+
+/* Poza pachetului (centrată corect) */
+.pack img {
+    display: block;
+    margin: 0 auto;
+    width: 150px;
+}
+
+/* Titlul pachetului */
+.pack h2 {
+    font-size: 20px;
+    font-weight: bold;
+    color: black;
+    text-shadow: 2px 2px 5px rgba(255, 255, 255, 0.7);
+}
+
+/* Prețul să fie mai vizibil */
+.pack .price {
+    font-size: 18px;
+    font-weight: bold;
+    color: black;
+    text-shadow: 2px 2px 5px rgba(255, 255, 255, 0.7);
+}
+
+/* Caseta unde e cantitatea și butonul */
+.pack .quantity-container {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 5px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.username-display {
+    margin-left: 10px;
+    font-weight: bold;
+    background-color: #1e1e1e;
+    color: #fff;
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 14px;
+}
+
+.cart-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px;
+}
+
+.cart-item {
+    display: flex;
+    align-items: center;
+    border: 2px solid #ccc;
+    padding: 15px;
+    border-radius: 10px;
+    background-color: #fdfdfd;
+}
+
+.cart-image {
+    width: 100px;
+    margin-right: 20px;
+}
+
+.cart-details h3 {
+    margin: 0 0 10px 0;
+    font-size: 18px;
+}
+
+/* Stil butoane de acțiune în coș */
+#buttons button {
+    background-color: #d9534f;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    margin: 5px;
+    font-size: 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+#buttons button:hover {
+    background-color: #c9302c;
+    transform: scale(1.05);
+}
+
+/* Butonul de comanda - stil separat */
+#orderBtn {
+    background-color: #5cb85c;
+}
+
+#orderBtn:hover {
+    background-color: #4cae4c;
+}
+
+/* Butonul "Șterge" pentru fiecare produs */
+.remove-btn {
+    background-color: #f0ad4e;
+    color: white;
+    border: none;
+    padding: 8px 14px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+.remove-btn:hover {
+    background-color: #ec971f;
+}
+
+
+#checkoutForm {
+    background-color: #f9f9f9;
+    border: 2px solid #ccc;
+    border-radius: 12px;
+    padding: 20px 30px;
+    max-width: 600px;
+    margin: 40px auto;
+    box-shadow: 0 0 15px rgba(0,0,0,0.1);
+    font-family: 'Segoe UI', sans-serif;
+}
+
+#checkoutForm h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+#checkoutForm label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: bold;
+    color: #444;
+}
+
+#checkoutForm input,
+#checkoutForm textarea,
+#checkoutForm select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 18px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    font-size: 14px;
+}
+
+#checkoutForm button[type="submit"] {
+    background-color: #28a745;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    width: 100%;
+    transition: background-color 0.3s ease;
+}
+
+#checkoutForm button[type="submit"]:hover {
+    background-color: #218838;
+}
+
+
+.trait-box {
+    position: relative;
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 800px;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.8);
+    z-index: 1;
+    overflow: hidden;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.trait-box::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    opacity: 0.25;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    z-index: 0;
+}
+
+.trait-box * {
+    position: relative;
+    z-index: 1;
+}
+
+/* Fundaluri individuale */
+.trait-box.underground::before {
+    background-image: url("others/BG_Underground.png");
+}
+.trait-box.farumazula::before {
+    background-image: url("others/BG_FarumAzula.png");
+}
+.trait-box.dragons::before {
+    background-image: url("others/BG_Dragons.png");
+}
+.trait-box.liurnia::before {
+    background-image: url("others/BG_Liurnia.png");
+}
+.trait-box.altusplateau::before {
+    background-image: url("others/BG_AltusPlateau.png");
+}
+.trait-box.omen::before {
+    background-image: url("others/BG_Omen.png");
+}
+.trait-box.bloodreaper::before {
+    background-image: url("others/BG_BloodReaper.png");
+}
+.trait-box.caelid::before {
+    background-image: url("others/BG_Caelid.png");
+}
+.trait-box.haligtree::before {
+    background-image: url("others/BG_Haligtree.png");
+}
+.trait-box.stormveil::before {
+    background-image: url("others/BG_Stormveil.png");
+}
+
+
+.pack.out-of-stock {
+    position: relative;
+    opacity: 0.6;
+    pointer-events: none;
+    filter: grayscale(100%);
+}
+
+.pack.out-of-stock::after {
+    content: "Stoc epuizat";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(128, 128, 128, 0.6);
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    z-index: 10;
+}
+
+footer {
+  background-color: #222;
+  color: white;
+  padding: 20px 10px;
+  text-align: center;
+  position: relative;
+}
+
+.footer-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.footer-char {
+  width: 160px;
+  height: auto;
+}
+
+.footer-char.left {
+  position: absolute;
+  left: 10px;
+  bottom: 10px;
+}
+
+.footer-char.right {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+}
+
+.footer-center {
+  text-align: center;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.footer-support {
+  margin-top: 10px;
+  font-size: 14px;
+}
+
+.footer-icon {
+  width: 20px;
+  vertical-align: middle;
+  margin-right: 5px;
+}
+
+footer a {
+  color: #a9d6ff;
+  text-decoration: none;
+}
+
+footer a:hover {
+  text-decoration: underline;
+}
+
+body.login-page {
+  background-color: #f1f1f1;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.login-container {
+  max-width: 400px;
+  margin: 80px auto;
+  background: #ffffff;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.login-container h2 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 25px;
+}
+
+.login-container label {
+  font-weight: bold;
+  display: block;
+  margin-top: 15px;
+  color: #444;
+}
+
+.login-container input[type="text"],
+.login-container input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  font-size: 14px;
+}
+
+.login-container button {
+  width: 100%;
+  padding: 12px;
+  margin-top: 25px;
+  background-color: #337ab7;
+  color: white;
+  font-weight: bold;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+.login-container button:hover {
+  background-color: #286090;
+}
+
+.login-container a {
+  display: block;
+  text-align: center;
+  margin-top: 20px;
+  text-decoration: none;
+  color: #337ab7;
+  font-size: 14px;
+}
+
+.login-container a:hover {
+  text-decoration: underline;
+}

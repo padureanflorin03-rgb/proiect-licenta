@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Comenzile Mele - The Elden Lord Card Game</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .order-box {
+      background-color: #f9f9f9;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      padding: 15px;
+      margin: 20px auto;
+      max-width: 700px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    .order-box h3 {
+      margin-top: 0;
+      color: #333;
+    }
+
+    .order-box p {
+      margin: 6px 0;
+      color: #444;
+    }
+
+    .order-box hr {
+      margin-top: 15px;
+      border: 0;
+      height: 1px;
+      background-color: #ccc;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="logo">The Elden Lord Card Game</div>
+  <nav>
+    <ul>
+      <li><a href="html.html">Acasă</a></li>
+      <li><a href="despre-joc.html">Despre Joc</a></li>
+      <li><a href="carti.html">Cărți</a></li>
+      <li><a href="shop.html">Magazin</a></li>
+      <li><a href="resurse.html">Resurse</a></li>
+      <li><a href="forum.html">Forum</a></li>
+    </ul>
+  </nav>
+
+  <div class="user-menu">
+    <img src="others/user.png" alt="User Icon" class="user-icon" />
+    <span id="usernameLabel" style="margin-left: 8px; font-weight: bold;"></span>
+    <div class="dropdown-menu" id="userDropdown"></div>
+  </div>
+</header>
+
+<main>
+  <h1 style="text-align:center;">Comenzile Mele</h1>
+  <p style="text-align:center;">Dacă comanda nu apare imediat, dă un refresh la pagină. Mulțumim!</p>
+  <div id="ordersContainer" style="padding: 20px;"></div>
+</main>
+
+<footer>
+  <div class="footer-content">
+    <img src="others/caracter1.png" alt="Caracter 1" class="footer-char left">
+    
+    <div class="footer-center">
+      <p>&copy; The Elden Lord Card Game shop</p>
+      <div class="footer-support">
+        <img src="others/telephone.png" alt="Telefon" class="footer-icon">
+        Suport telefonic la <strong>+40 722 123 456</strong><br>
+        Suport online la tiberiuflorin.padurean@ublsibiu.ro</a>
+      </div>
+    </div>
+
+    <img src="others/caracter3.png" alt="Caracter 3" class="footer-char right">
+  </div>
+</footer>
+
+<script>
+  const username = localStorage.getItem("username");
+  const isLoggedIn = localStorage.getItem("isLoggedIn");
+  const usernameLabel = document.getElementById("usernameLabel");
+  const dropdown = document.getElementById("userDropdown");
+  const ordersContainer = document.getElementById("ordersContainer");
+
+  // Actualizam meniul user
+  if (isLoggedIn === "true" && username) {
+    usernameLabel.textContent = `👤 ${username}`;
+    dropdown.innerHTML = `
+      <a href="logout.php">Deconectați-vă</a>
+      <a href="cos.html">Coș</a>
+      <a href="orders.html">Comenzile Mele</a>
+	  <a href="cont.html">Cont</a>
+    `;
+
+// Citim comenzile din comenzi.csv 
+fetch("comenzi.csv")
+  .then(response => response.text())
+  .then(csv => {
+    const lines = csv.trim().split("\n").slice(1); // exclude header
+    const userOrders = lines
+      .map(line => line.split(";"))
+      .filter(cols => cols[1] === username); // verificăm username
+
+    if (userOrders.length === 0) {
+      ordersContainer.innerHTML = "<p style='color:gray; text-align:center;'>Nu ai nicio comandă salvată.</p>";
+      return;
+    }
+
+    userOrders.forEach(cols => {
+      const [
+        data, user, fullname, email, phone, address, postalcode,
+        payment, produse, total, status
+      ] = cols;
+
+      let statusText = "✉ Înregistrată";
+      if (parseInt(status) === 1) statusText = "🚚 În curs de livrare";
+      else if (parseInt(status) === 2) statusText = "✅ Livrată";
+
+      const div = document.createElement("div");
+      div.classList.add("order-box");
+      div.innerHTML = `
+        <h3>Comandă din ${data}</h3>
+        <p><strong>Nume:</strong> ${fullname}</p>
+        <p><strong>Email:</strong> ${email}</p>
+        <p><strong>Telefon:</strong> ${phone}</p>
+        <p><strong>Adresă:</strong> ${address}, Cod Poștal: ${postalcode}</p>
+        <p><strong>Plată:</strong> ${payment}</p>
+        <p><strong>Produse:</strong><br>${produse.replaceAll("|", "<br>")}</p>
+        <p><strong>Total:</strong> ${total} $</p>
+        <p><strong>Status:</strong> ${statusText}</p>
+        <hr>
+      `;
+      ordersContainer.appendChild(div);
+    });
+  })
+  .catch(error => {
+    console.error("Eroare la citirea comenzilor:", error);
+    ordersContainer.innerHTML = "<p style='color: red;'>❌ Eroare la încărcarea comenzilor.</p>";
+  });
+
+
+  } else {
+    usernameLabel.textContent = "";
+    dropdown.innerHTML = `
+      <a href="login.html">Logare</a>
+      <a href="signup.html">Inregistrare</a>
+    `;
+    ordersContainer.innerHTML = `<p style="color: red; text-align: center;">❌ Trebuie să fii logat pentru a vedea comenzile!</p>`;
+  }
+</script>
+
+</body>
+</html>

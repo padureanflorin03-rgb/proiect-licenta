@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contul Meu - The Elden Lord Card Game</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .account-container {
+      max-width: 600px;
+      margin: 40px auto;
+      background: #f9f9f9;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+    .account-container h2 {
+      text-align: center;
+    }
+    .account-container label {
+      font-weight: bold;
+      margin-top: 10px;
+      display: block;
+    }
+    .account-container input,
+    .account-container textarea {
+      width: 100%;
+      padding: 8px;
+      margin-top: 5px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    .account-container button {
+      background-color: #337ab7;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    .account-container button:hover {
+      background-color: #286090;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">The Elden Lord Card Game</div>
+    <nav>
+      <ul>
+        <li><a href="html.html">Acasă</a></li>
+        <li><a href="despre-joc.html">Despre Joc</a></li>
+        <li><a href="carti.html">Cărți</a></li>
+        <li><a href="shop.html">Magazin</a></li>
+        <li><a href="resurse.html">Resurse</a></li>
+        <li><a href="forum.html">Forum</a></li>
+      </ul>
+    </nav>
+    <div class="user-menu">
+      <img src="others/user.png" alt="User Icon" class="user-icon" />
+      <span id="usernameLabel" style="margin-left: 8px; font-weight: bold;"></span>
+      <div class="dropdown-menu" id="userDropdown"></div>
+    </div>
+  </header>
+
+  <main>
+    <div class="account-container">
+      <h2>Informații Cont</h2>
+	  <label>Salvați aici datele dacă doriți, pentru a vă ușura plasarea comenzilor viitoare</label>
+      <label>Username</label>
+      <input type="text" id="username" readonly />
+
+      <label>Email</label>
+      <input type="email" id="email" readonly />
+
+      <label>Nume complet</label>
+      <input type="text" id="fullname" placeholder="Ex: Andrei Popescu" />
+
+      <label>Adresă</label>
+      <textarea id="address" rows="2"></textarea>
+
+      <label>Telefon</label>
+      <input type="tel" id="phone" />
+
+      <label>Cod Poștal</label>
+      <input type="text" id="postalcode" />
+
+      <button onclick="salveazaDate()">💾 Salvează</button>
+    </div>
+  </main>
+
+<footer>
+  <div class="footer-content">
+    <img src="others/caracter1.png" alt="Caracter 1" class="footer-char left">
+    
+    <div class="footer-center">
+      <p>&copy; The Elden Lord Card Game shop</p>
+      <div class="footer-support">
+        <img src="others/telephone.png" alt="Telefon" class="footer-icon">
+        Suport telefonic la <strong>+40 722 123 456</strong><br>
+        Suport online la tiberiuflorin.padurean@ublsibiu.ro</a>
+      </div>
+    </div>
+
+    <img src="others/caracter3.png" alt="Caracter 3" class="footer-char right">
+  </div>
+</footer>
+
+
+<script>
+  const username = localStorage.getItem("username");
+  const email = localStorage.getItem("email");
+  const isLoggedIn = localStorage.getItem("isLoggedIn");
+
+  const usernameLabel = document.getElementById("usernameLabel");
+  const dropdown = document.getElementById("userDropdown");
+
+  if (isLoggedIn === "true" && username) {
+    usernameLabel.textContent = `👤 ${username}`;
+    dropdown.innerHTML = `
+      <a href="cont.html">Cont</a>
+      <a href="cos.html">Coș</a>
+      <a href="orders.html">Comenzile Mele</a>
+      <a href="logout.php">Deconectați-vă</a>
+    `;
+  } else {
+    document.body.innerHTML = "<h2 style='text-align:center; color:red;'>❌ Trebuie să fii logat pentru a accesa această pagină.</h2>";
+  }
+
+  // Prefixare cu username pentru salvare unică
+  if (username) {
+    document.getElementById("username").value = username;
+    document.getElementById("email").value = email || "";
+
+    document.getElementById("fullname").value = localStorage.getItem(`fullname_${username}`) || "";
+    document.getElementById("address").value = localStorage.getItem(`address_${username}`) || "";
+    document.getElementById("phone").value = localStorage.getItem(`phone_${username}`) || "";
+    document.getElementById("postalcode").value = localStorage.getItem(`postalcode_${username}`) || "";
+  }
+
+  function salveazaDate() {
+    if (!username) return;
+    localStorage.setItem(`fullname_${username}`, document.getElementById("fullname").value);
+    localStorage.setItem(`address_${username}`, document.getElementById("address").value);
+    localStorage.setItem(`phone_${username}`, document.getElementById("phone").value);
+    localStorage.setItem(`postalcode_${username}`, document.getElementById("postalcode").value);
+    alert("✔️ Datele au fost salvate cu succes!");
+  }
+</script>
+
+</body>
+</html>

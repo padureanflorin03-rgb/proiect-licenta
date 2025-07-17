@@ -1,0 +1,9 @@
+{"id":"q_6824df8204d4b","user":"usertest3","question":"intrebare 1???","answers":[{"user":"usertest3","text":"tot eu raspund"},{"user":"usertest2","text":"acum eu raspund"},{"user":"usertest2","text":"sdf"},{"user":"user1","text":"test","date":"2025-05-24 03:54"},{"user":"user4","text":"si  eu am raspuns","date":"2025-06-03 18:48"}]}
+{"id":"q_6824dfa06eeca","user":"usertest2","question":"ce tare","answers":[]}
+{"id":"q_6824ee80bccfc","user":"usertest3","question":"intrebare??\n","answers":[]}
+{"id":"q_682f3b498f358","user":"usertest2","question":"cand vin pachete noi in magazin??\n","answers":[]}
+{"id":"q_682f4cfe865cf","user":"usertest3","question":"merge din nou???>?","answers":[{"user":"usertest2","text":"daaa!"},{"user":"user2","text":"daaa!x2","date":"2025-06-27 01:29"}]}
+{"id":"q_682f655828c1b","user":"usertest1","question":"salut, sa stiti ca mi s-a stricat  toata baza  de date, acesta este noul meu cont!","answers":[]}
+{"id":"q_68311aeaa0b66","user":"user9","question":"salut, sunt user nou!\n","date":"2025-05-24 03:03","answers":[{"user":"user9","text":"rfawr34r","date":"2025-05-24 03:58"},{"user":"user2","text":"pare ca merge, salut user9","date":"2025-05-24 04:00"}]}
+{"id":"q_683893a81ea96","user":"user2","question":"salut","date":"2025-05-29 19:04","answers":[]}
+{"id":"q_683b9a60474a6","user":"user4","question":"salut! functioneaza plata cu cardul?","date":"2025-06-01 02:10","answers":[]}

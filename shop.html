@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Magazin - The Elden Lord Card Game</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="logo">𝕿𝖍𝖊 𝕰𝖑𝖉𝖊𝖓 𝕷𝖔𝖗𝖉</div>
+        <nav>
+            <ul>
+                <li><a href="html.html">Acasă</a></li>
+                <li><a href="despre-joc.html">Despre Joc</a></li>
+                <li><a href="carti.html">Cărți</a></li>
+                <li><a href="shop.html">Magazin</a></li>
+                <li><a href="resurse.html">Resurse</a></li>
+                <li><a href="forum.html">Forum</a></li>
+            </ul>
+        </nav>
+		
+		<div class="user-menu">
+            <img src="others/user.png" alt="User Icon" class="user-icon" />
+            <div class="dropdown-menu">
+				<a href="http://localhost/site/login.html">Logare</a>
+				<a href="http://localhost/site/signup.html">Inregistrare</a>
+                <a href="cos.html">Coș</a>
+                <a href="orders.html">Comenzile Mele</a>
+				<a href="cont.html">Cont</a>
+            </div>
+    </header>
+	
+		<script>
+document.addEventListener("DOMContentLoaded", function () {
+    fetch("user-status.php")
+        .then(response => response.json())
+        .then(data => {
+            const userMenu = document.querySelector(".dropdown-menu");
+            if (data.loggedIn) {
+                userMenu.innerHTML = `
+                    <p class="username-display">👤 ${data.username}</p>
+                    <a href="logout.php">Deconectați-vă</a>
+                    <a href="cos.html">Coș</a>
+                    <a href="orders.html">Comenzile Mele</a>
+					<a href="cont.html">Cont</a>
+                `;
+            }
+        });
+});
+</script>
+
+    <main>
+        <h1>Magazin - Pachete de Cărți</h1>
+        <p>Alege pachetele dorite și adaugă-le în coș.</p>
+
+        <div class="pack-container">
+            <!-- Pack 1 - Special Edition -->
+        <div class="pack special-pack" data-pack-id="1">
+    <img src="packs/pack1.png" alt="Pack 1">
+    <h2>Special Edition Pack</h2>
+    <p class="price"><strong>17.99 $</strong></p>
+    <p>✔️ 35 de cărți, minim 1 Special Card.</p>
+    <p>🔹 10% șansă la încă un Special Summon/Special Card.</p>
+    <p>⚠️ Poate conține dubluri.</p>
+    <label for="quantity1">Cantitate:</label>
+    <input type="number" id="quantity1" value="1" min="1">
+    <button onclick="addToCart(1, 17.99)">Adaugă în coș</button>
+</div>
+
+
+            <!-- Pack 2 - Booster Pack -->
+            <div class="pack" data-pack-id ="2">
+                <img src="packs/pack2.png" alt="Pack 2">
+                <h2>Booster Pack (6 cărți)</h2>
+                <p class="price"><strong>2.50 $</strong></p>
+                <p>✔️ 7 cărți din orice categorie.</p>
+                <p>🔹 3% șansă la Special Summon.</p>
+                <label for="quantity2">Cantitate:</label>
+                <input type="number" id="quantity2" value="1" min="1">
+                <button onclick="addToCart(2, 2.50)">Adaugă în coș</button>
+            </div>
+
+            <!-- Pack 3 - Mega Bundle -->
+            <div class="pack mega-pack" data-pack-id="3">
+                <span class="promo-tag">OFERTA SPECIALĂ!</span>
+                <img src="packs/pack3.png" alt="Pack 3">
+                <h2>Mega Bundle - 3 Booster Packs</h2>
+                <p class="price"><strong>10.99 $</strong></p>
+                <p>✔️ 39 cărți (3 pachete x 13 cărți).</p>
+                <p>🔹 7% șansă la Special Summon per pachet.</p>
+                <label for="quantity3">Cantitate:</label>
+                <input type="number" id="quantity3" value="1" min="1">
+                <button onclick="addToCart(3, 10.99)">Adaugă în coș</button>
+            </div>
+
+            <!-- Pack 4 - Booster Pack (12 carti) -->
+            <div class="pack" data-pack-id="4">
+                <img src="packs/pack4.png" alt="Pack 4">
+                <h2>Booster Pack (12 cărți)</h2>
+                <p class="price"><strong>3.99 $</strong></p>
+                <p>✔️ 16 cărți din orice categorie.</p>
+                <p>🔹 7% șansă la Special Summon.</p>
+                <label for="quantity4">Cantitate:</label>
+                <input type="number" id="quantity4" value="1" min="1">
+                <button onclick="addToCart(4, 3.99)">Adaugă în coș</button>
+            </div>
+        </div>
+    </main>
+
+<footer>
+  <div class="footer-content">
+    <img src="others/caracter1.png" alt="Caracter 1" class="footer-char left">
+    
+    <div class="footer-center">
+      <p>&copy; The Elden Lord Card Game shop</p>
+      <div class="footer-support">
+        <img src="others/telephone.png" alt="Telefon" class="footer-icon">
+        Suport telefonic la <strong>+40 722 123 456</strong><br>
+        Suport online la tiberiuflorin.padurean@ublsibiu.ro</a>
+      </div>
+    </div>
+
+    <img src="others/caracter3.png" alt="Caracter 3" class="footer-char right">
+  </div>
+</footer>
+
+    <script src="shop.js"></script>
+	
+	
+</body>
+</html>

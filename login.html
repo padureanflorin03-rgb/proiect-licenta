@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Log In - The Elden Lord Card Game</title>
+    <link rel="stylesheet" href="style.css">
+	
+</head>
+<body>
+    <header>
+        <div class="logo">The Elden Lord Card Game</div>
+        <nav>
+            <ul>
+                <li><a href="html.html">Acasă</a></li>
+                <li><a href="despre-joc.html">Despre Joc</a></li>
+                <li><a href="carti.html">Cărți</a></li>
+                <li><a href="shop.html">Magazin</a></li>
+                <li><a href="resurse.html">Resurse</a></li>
+                <li><a href="forum.html">Forum</a></li>
+            </ul>
+        </nav>
+		<div class="user-menu">
+        <img src="others\user.png" alt="User Icon" class="user-icon" />
+        <div class="dropdown-menu">
+            <a href="http://localhost/site/login.html">Logare</a>
+            <a href="http://localhost/site/signup.html">Inregistrare</a>
+            <a href="cos.html">Coș</a>
+            <a href="orders.html">Comenzile Mele</a>
+        </div>
+    </div>
+    </header>
+
+    <main>
+	<div class="login-container">
+        <h1>Logare</h1>
+        <form action="login-process.php" method="post">
+    <label for="username">Username:</label>
+    <input type="text" id="username" name="username" required>
+
+    <label for="password">Parolă:</label>
+    <input type="password" id="password" name="password" required>
+
+    <button type="submit">Autentificare</button>
+</form>
+		
+        </form>
+        <p>Nu ai un cont? <a href="signup.html">Înregistrează-te aici</a></p>
+		<p id="errorMessage" style="color: red; display: none;">Username sau parolă incorectă.</p>
+		</div>
+    </main>
+	
+	
+<script>
+    // Verificăm dacă există un parametru "error" în URL
+    const urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.has("error")) {
+        document.getElementById("errorMessage").style.display = "block";
+    }
+</script>
+
+
+<footer>
+  <div class="footer-content">
+    <img src="others/caracter1.png" alt="Caracter 1" class="footer-char left">
+    
+    <div class="footer-center">
+      <p>&copy; The Elden Lord Card Game shop</p>
+      <div class="footer-support">
+        <img src="others/telephone.png" alt="Telefon" class="footer-icon">
+        Suport telefonic la <strong>+40 722 123 456</strong><br>
+        Suport online la tiberiuflorin.padurean@ublsibiu.ro</a>
+      </div>
+    </div>
+
+    <img src="others/caracter3.png" alt="Caracter 3" class="footer-char right">
+  </div>
+</footer>
+</body>
+
+
+
+</html>
